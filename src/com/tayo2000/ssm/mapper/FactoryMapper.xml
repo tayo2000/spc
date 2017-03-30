@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    " http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">  
+  <mapper namespace="com.tayo2000.ssm.mapper.FactoryMapper">
+  	
+  	<select id="listAll" resultType="Factory">
+  		select * from factory  order by fNo
+  	</select>
+  	
+  	<select id="find" parameterType="String" resultType="Factory">
+  		select * from factory where fNo=#{value} order by fNo
+  	</select>
+	
+	<delete id="delete" parameterType="Factory">
+		delete from factory where fNo=#{fNo} 
+	</delete>
+	
+	<insert id="add" parameterType="Factory">
+		insert into factory(fNo,fName,fType,fInfo) 
+		values(#{fNo},#{fName},#{fType},#{fInfo})
+	</insert>
+	
+	<update id="update" parameterType="Factory">
+    	update factory set fName=#{fName},fType=#{fType},fInfo=#{fInfo} where fNo=#{fNo}
+    </update>
+  </mapper>

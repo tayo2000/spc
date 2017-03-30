@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://www.mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 定义别名 -->
+	<typeAliases>
+		<!-- 单个别名 <typeAlias type="cn.edu.cztgi.pojo.Product" alias="product"/>-->
+		<!-- 将整个数据包下的类起了别名，别名就是类名,如果还需要扫描别的包，可以再写一个package元素 -->
+		<package name="com.tayo2000.ssm.po"/>
+	</typeAliases>
+</configuration>

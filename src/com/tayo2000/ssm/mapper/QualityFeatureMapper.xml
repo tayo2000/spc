@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    " http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">  
+  <mapper namespace="com.tayo2000.ssm.mapper.QualityFeatureMapper">
+  	<sql id="qfQueryCondition">
+  		<if test="product!=null">
+  			<if test="product.fNo!=null and product.fNo!=''">
+	   			and fNo=#{product.fNo}
+	  		</if>
+	  		<if test="product.pNo!=null and product.pNo!=''">
+	   			and pNo=#{product.pNo}
+	  		</if>
+	  	</if>
+  	</sql>
+  	
+  	<select id="list" parameterType="ProductQuery" resultType="QualityFeature">
+  		select * from QualityFeature 
+  		<where>
+     		<include refid="qfQueryCondition"></include>	
+     	</where>
+     	order by qfNo
+  	</select>
+  	
+  	<select id="findByProduct" parameterType="Product" resultType="QualityFeature">
+  		select * from QualityFeature 
+  		where pNo=#{pNo} and fNo=#{fNo}
+  		order by qfNo
+  	</select>
+	
+	<delete id="delete" parameterType="QualityFeature">
+		delete from QualityFeature 
+		where fNo=#{fNo} and pNo=#{pNo} and qfNo=#{qfNo}
+	</delete>
+	
+	<insert id="add" parameterType="QualityFeature">
+		insert into QualityFeature(fNo,pNo,qfNo,qfName,usl,lsl,sl,unit) 
+		values(#{fNo},#{pNo},#{qfNo},#{qfName},#{usl},#{lsl},#{sl},#{unit})
+	</insert>
+	
+	<update id="update" parameterType="QualityFeature">
+    	update QualityFeature set qfName=#{qfName},usl=#{usl},lsl=#{lsl},sl=#{sl},unit=#{unit}
+    	where  fNo=#{fNo} and pNo=#{pNo} and qfNo=#{qfNo} 
+    </update>
+  </mapper>

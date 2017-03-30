@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    " http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">  
+  <mapper namespace="com.tayo2000.ssm.mapper.RealTimeValueMapper">
+  	<sql id="QueryCondition">
+  		<if test="rtv!=null">
+  			<if test="rtv.fNo!=null and rtv.fNo!=''">
+	   			and fNo=#{rtv.fNo}
+	  		</if>
+	  		<if test="rtv.pNo!=null and rtv.pNo!=''">
+	   			and pNo=#{rtv.pNo}
+	  		</if>
+	  		<if test="rtv.qfNo!=null and rtv.qfNo!=''">
+	  			and qfNo=#{rtv.qfNo}
+	  		</if>
+	  	</if>
+  	</sql>
+  	
+  	<select id="list" parameterType="RealTimeValueQuery" resultType="RealTimeValue">
+  		select * from realtime_view
+  		<where>
+     		<include refid="QueryCondition"></include>	
+     	</where>
+  	</select>
+  	
+  	<select id="listLastest" parameterType="String" resultType="RealTimeValue">
+  		SELECT t1.*
+		FROM realtime_view AS t1,
+	   (SELECT qfNo,MAX(realtime) AS realtime
+		FROM realtime_view 
+		WHERE fNo=#{value}
+		GROUP BY pNo,qfNo) AS t2
+		WHERE t1.qfNo=t2.qfNo AND t1.realtime=t2.realtime
+  	</select>
+  	
+  	<select id="getTotalRecord" parameterType="RealTimeValueQuery" resultType="Integer">
+  		select count(1) from realtime_view
+		<where>
+			<include refid="QueryCondition"></include>	
+		</where>
+  	</select>
+  	
+  	<select id="listByPagination" parameterType="RealTimeValueQuery" resultType="RealTimeValue">
+		select * from realtime_view 
+		<where>
+			<include refid="QueryCondition"></include>	
+		</where>
+		ORDER BY pNo,qfNo  LIMIT #{pager.startPos},#{pager.pageSize};
+	</select>
+  </mapper>
