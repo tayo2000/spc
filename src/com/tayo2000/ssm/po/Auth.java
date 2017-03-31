@@ -7,9 +7,10 @@ public class Auth {
 	private int authId;
 	private String authName;
 	private String authDesc;
-	private String action;
+	private String action; 
 	private String url;
 	private int moduleId;
+	
 	public int getAuthId() {
 		return authId;
 	}
