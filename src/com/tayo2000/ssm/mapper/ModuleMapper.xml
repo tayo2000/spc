@@ -8,7 +8,7 @@
   		select * from module order by moduleId
   	</select>
   	
-	<delete id="delete" parameterType="Module">
+	<delete id="delete" parameterType="String">
 		delete from module where moduleName=#{value} 
 	</delete>
 	
