@@ -21,7 +21,7 @@
      <bean id="realTimeValueService" class="com.tayo2000.ssm.service.impl.RealTimeValueServiceImpl"></bean>
      <bean id="factoryService" class="com.tayo2000.ssm.service.impl.FactoryServiceImpl"></bean>
      <bean id="userService"    class="com.tayo2000.ssm.service.impl.UserServiceImpl"></bean>  
-     <bean id="authService"   class="com.tayo2000.ssm.service.impl.authServiceImpl"></bean>  
+     <bean id="authService"   class="com.tayo2000.ssm.service.impl.AuthServiceImpl"></bean>  
      <bean id="moduleService"  class="com.tayo2000.ssm.service.impl.ModuleServiceImpl"></bean>   
      <bean id="roleService"  class="com.tayo2000.ssm.service.impl.RoleServiceImpl"></bean> 
      <bean id="userRoleService" class="com.tayo2000.ssm.service.impl.UserRoleServiceImpl"></bean>     
