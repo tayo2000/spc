@@ -1,5 +1,5 @@
 var url;
-function addauth(){
+function addAuth(){
 	$('#dlg').dialog('open').dialog('setTitle','添加权限信息');
 	$('#fm').form('clear');
 	url='authAdd.action';
@@ -7,7 +7,7 @@ function addauth(){
 	$('#authId').css("background-color","#fff");
 }
 
-function editauth(){
+function editAuth(){
 	var row = $('#dg').datagrid('getSelected');
 	if (row){
 		$('#dlg').dialog('open').dialog('setTitle','编辑权限信息');
@@ -18,7 +18,7 @@ function editauth(){
 	url='authUpdate.action';
 }
 
-function saveauth(){
+function saveAuth(){
 	$('#fm').form('submit',{
 		url: url,
 		onSubmit: function(){
@@ -31,7 +31,7 @@ function saveauth(){
 	});
 }
 
-function deleteauth(){
+function deleteAuth(){
 	var row = $('#dg').datagrid('getSelected');
 	if (row){
 		$.messager.confirm('确认','您确定要删除编号为：'+row.authId+'的权限吗?',function(r){
@@ -43,6 +43,6 @@ function deleteauth(){
 	}
 }
 
-function refreshauth(){
+function refreshAuth(){
 	$('#dg').datagrid('reload');
 }
