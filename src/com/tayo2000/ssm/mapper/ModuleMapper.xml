@@ -5,21 +5,25 @@
     
   <mapper namespace="com.tayo2000.ssm.mapper.ModuleMapper">
   	<select id="list" resultType="Module">
-  		select * from module order by moduleId
+  		select * from module 
+  	</select>
+  	
+  	<select id="listById" resultType="String">
+  		select * from module where moduleId=#{value}
   	</select>
   	
 	<delete id="delete" parameterType="String">
-		delete from module where moduleName=#{value} 
+		delete from module where moduleId=#{value} 
 	</delete>
 	
 	<insert id="add" parameterType="Module">
-		insert into module(moduleName,moduleDesc) 
-		values(#{moduleName},#{moduleDesc})
+		insert into module(moduleId,moduleName,moduleDesc) 
+		values(#{moduleId},#{moduleName},#{moduleDesc})
 	</insert>
 	
 	<update id="update" parameterType="Module">
     	update module
-    	set moduleDesc=#{moduleDesc}
-    	where moduleName=#{moduleName}
+    	set moduleDesc=#{moduleDesc},moduleName=#{moduleName}
+    	where moduleId=#{moduleId}
     </update>
   </mapper>

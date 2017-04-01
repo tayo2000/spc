@@ -10,31 +10,44 @@ import com.tayo2000.ssm.service.ModuleService;
 public class ModuleServiceImpl implements ModuleService {
 	
 	@Autowired
-	private ModuleMapper mMapper;
+	private ModuleMapper mapper;
 	
 	
 	@Override
 	public List<Module> list() throws Exception {
 		// TODO Auto-generated method stub
-		return mMapper.list();
-	}
-
-	@Override
-	public int delete(String moduleName) throws Exception {
-		// TODO Auto-generated method stub
-		return mMapper.delete(moduleName);
+		return mapper.list();
 	}
 
 	@Override
 	public int add(Module module) throws Exception {
 		// TODO Auto-generated method stub
-		return mMapper.add(module);
+		return mapper.add(module);
 	}
 
 	@Override
 	public int update(Module module) throws Exception {
 		// TODO Auto-generated method stub
-		return mMapper.update(module);
+		return mapper.update(module);
+	}
+
+
+	@Override
+	public Module listById(String moduleId) throws Exception {
+		// TODO Auto-generated method stub
+		return mapper.listById(moduleId);
+	}
+
+	@Override
+	public int delete(String moduleId) throws Exception {
+		// TODO Auto-generated method stub
+		return mapper.delete(moduleId);
+	}
+
+	@Override
+	public boolean isExist(String moduleId) throws Exception {
+		if(mapper.listById(moduleId)!=null) return true;
+		else return false;
 	}
 
 }

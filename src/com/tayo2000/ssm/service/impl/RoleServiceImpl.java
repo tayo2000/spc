@@ -25,9 +25,9 @@ public class RoleServiceImpl implements RoleService {
 	}
 
 	@Override
-	public int delete(String roleName) throws Exception {
+	public int delete(String roleId) throws Exception {
 		// TODO Auto-generated method stub
-		return mapper.delete(roleName);
+		return mapper.delete(roleId);
 	}
 
 	@Override

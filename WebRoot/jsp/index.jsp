@@ -52,7 +52,13 @@
 							<div><a onclick="addTab('用户列表','jsp/user/userList.jsp')">用户管理</a></div>
 						</li>
 						<li>
-							<div><a onclick="addTab('厂商列表','jsp/factory/factoryList.jsp')">厂商管理</a></div>
+							<div><a onclick="addTab('模块列表','jsp/module/moduleList.jsp')">模块管理</a></div>
+						</li>
+						<li>
+							<div><a onclick="addTab('权限列表','jsp/auth/authList.jsp')">权限管理</a></div>
+						</li>
+						<li>
+							<div><a onclick="addTab('角色列表','jsp/role/roleList.jsp')">角色管理</a></div>
 						</li>
 					</ul>
 				</div>

@@ -18,11 +18,6 @@ public class AuthServiceImpl implements AuthService {
 		return mapper.list();
 	}
 
-	@Override
-	public int delete(int authId) throws Exception {
-		// TODO Auto-generated method stub
-		return mapper.delete(authId);
-	}
 
 	@Override
 	public int add(Auth auth) throws Exception {
@@ -34,6 +29,12 @@ public class AuthServiceImpl implements AuthService {
 	public int update(Auth auth) throws Exception {
 		// TODO Auto-generated method stub
 		return mapper.update(auth);
+	}
+
+	@Override
+	public int delete(String authId) throws Exception {
+		// TODO Auto-generated method stub
+		return mapper.delete(authId);
 	}
 	
 	

@@ -4,17 +4,16 @@ package com.tayo2000.ssm.po;
  * @author Administrator
  */
 public class Auth {
-	private int authId;
+	private String authId;
 	private String authName;
 	private String authDesc;
-	private String action; 
 	private String url;
-	private int moduleId;
+	private String moduleId;
 	
-	public int getAuthId() {
+	public String getAuthId() {
 		return authId;
 	}
-	public void setAuthId(int authId) {
+	public void setAuthId(String authId) {
 		this.authId = authId;
 	}
 	public String getAuthName() {
@@ -29,23 +28,23 @@ public class Auth {
 	public void setAuthDesc(String authDesc) {
 		this.authDesc = authDesc;
 	}
-	public String getAction() {
-		return action;
-	}
-	public void setAction(String action) {
-		this.action = action;
-	}
+	
 	public String getUrl() {
 		return url;
 	}
 	public void setUrl(String url) {
 		this.url = url;
 	}
-	public int getModuleId() {
+	
+	public String getModuleId() {
 		return moduleId;
 	}
-	public void setModuleId(int moduleId) {
+	public void setModuleId(String moduleId) {
 		this.moduleId = moduleId;
 	}
-	
+	public String toString(){
+		StringBuffer sb=new StringBuffer("");
+		sb.append(authId+"\t"+authName+"\t"+authDesc+"\t"+url+"\t"+moduleId);
+		return sb.toString();
+	}
 }

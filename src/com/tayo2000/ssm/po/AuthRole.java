@@ -23,6 +23,10 @@ public class AuthRole {
 	public void setRoleId(int roleId) {
 		this.roleId = roleId;
 	}
-	
+	public String toString(){
+		StringBuffer sb=new StringBuffer("");
+		sb.append(authRoleId+"\t"+authId+"\t"+roleId);
+		return sb.toString();
+	}
 	
 }

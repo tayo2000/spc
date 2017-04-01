@@ -33,13 +33,13 @@ public class testModuleMapper {
 			System.out.println(m);
 		}
 	}
+	
 	@Test
 	public void testDelete() throws Exception{
-		service.delete("user");
-		List<Module> list=service.list();
-		for(Module m : list){
-			System.out.println(m);
-		}
+		String moduleId="user";
+		Module m=service.listById(moduleId);
+		if(m!=null) service.delete(m.getModuleId());
+	
 	}
 	@Test
 	public void testUpdate() throws Exception{

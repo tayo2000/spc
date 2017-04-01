@@ -1,14 +1,14 @@
 package com.tayo2000.ssm.po;
 
 public class Module {
-	private int moduleId;
+	private String moduleId;
 	private String moduleName;
 	private String moduleDesc;
 	
-	public int getModuleId() {
+	public String getModuleId() {
 		return moduleId;
 	}
-	public void setModuleId(int moduleId) {
+	public void setModuleId(String moduleId) {
 		this.moduleId = moduleId;
 	}
 	public String getModuleName() {

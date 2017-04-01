@@ -5,21 +5,21 @@
     
   <mapper namespace="com.tayo2000.ssm.mapper.RoleMapper">
   	<select id="list" resultType="Role">
-  		select * from role order by roleName;
+  		select * from role order by roleId;
   	</select>
   	
 	<delete id="delete" parameterType="String">
-		delete from role where roleName=#{value} 
+		delete from role where roleId=#{value} 
 	</delete>
 	
 	<insert id="add" parameterType="Role">
-		insert into role(roleName,roleDesc) 
-		values(#{roleName},#{roleDesc})
+		insert into role(roleId,roleName,roleDesc) 
+		values(#{roleId},#{roleName},#{roleDesc})
 	</insert>
 	
 	<update id="update" parameterType="Role">
     	update role 
-    	set roleDesc=#{roleDesc}
-    	where roleName=#{roleName}
+    	set roleDesc=#{roleDesc},roleName=#{roleName}
+    	where roleId=#{roleId}
     </update>
   </mapper>

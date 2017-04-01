@@ -8,18 +8,18 @@
   		select * from auth order by authId
   	</select>
   	
-	<delete id="delete" parameterType="Integer">
+	<delete id="delete" parameterType="String">
 		delete from auth where authId=#{value} 
 	</delete>
 	
 	<insert id="add" parameterType="Auth">
-		insert into auth(authName,authDesc,action,url,moduleId) 
-		values(#{authName},#{authDesc},#{action},#{url},#{moduleId})
+		insert into auth(authId,authName,authDesc,url,moduleId) 
+		values(#{authId},#{authName},#{authDesc},#{url},#{moduleId})
 	</insert>
 	
 	<update id="update" parameterType="Auth">
     	update auth
-    	set authName=#{authName},authDesc=#{authDesc},url=#{url},action=#{action},moduleId=#{moduleId}
+    	set authName=#{authName},authDesc=#{authDesc},url=#{url},moduleId=#{moduleId}
     	where authId=#{authId}
     </update>
   </mapper>
