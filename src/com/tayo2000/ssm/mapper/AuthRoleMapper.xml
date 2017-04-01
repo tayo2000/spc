@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    " http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">  
+    
+  <mapper namespace="com.tayo2000.ssm.mapper.AuthRoleMapper">
+  	
+  	<select id="list" resultType="AuthRole">
+  		select * from authrole order by authroleId
+  	</select>
+  	
+	<delete id="delete" parameterType="UserRole">
+		delete from authrole where  authId=#{authId}  and roleId=#{roleId}
+	</delete>
+	
+	<insert id="add" parameterType="UserRole">
+		insert into authrole(authId,roleId) 
+		values(#{authId},#{roleId})
+	</insert>
+	
+  </mapper>

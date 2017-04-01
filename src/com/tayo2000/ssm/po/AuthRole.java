@@ -1,14 +1,15 @@
 package com.tayo2000.ssm.po;
 
-public class RoleAuth {
-	private int roleAuthId;
+public class AuthRole {
+	private int authRoleId;
 	private int authId;
 	private int roleId;
-	public int getRoleAuthId() {
-		return roleAuthId;
+	
+	public int getAuthRoleId() {
+		return authRoleId;
 	}
-	public void setRoleAuthId(int roleAuthId) {
-		this.roleAuthId = roleAuthId;
+	public void setAuthRoleId(int roleAuthId) {
+		this.authRoleId = roleAuthId;
 	}
 	public int getAuthId() {
 		return authId;
