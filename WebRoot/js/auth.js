@@ -5,6 +5,10 @@ function addAuth(){
 	url='authAdd.action';
 	$('#authId').removeAttr("readonly");
 	$('#authId').css("background-color","#fff");
+	$('#fm #moduleId').combobox({
+		 onLoadSuccess:function(data){ $('#moduleId').combobox('setValue',data[0].moduleId);}
+		
+	});   
 }
 
 function editAuth(){

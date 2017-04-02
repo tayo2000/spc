@@ -21,11 +21,11 @@
 			url="authList.action" toolbar="#toolbar" rownumbers="true" fitColumns="true" singleSelect="true" >
 			<thead>
 				<tr>
-					<th field="authId" width="50">权限编号</th>
+					<th field="authId" width="50">权限代号</th>
 					<th field="authName" width="50">权限名称</th>
 					<th field="authDesc" width="50">权限描述</th>
 					<th field="url" width="50">访问地址</th>
-					<th field="moduleId" width="50">模块编号</th>
+					<th field="moduleId" width="50">模块代号</th>
 				</tr>
 			</thead>
 		</table>
@@ -41,7 +41,7 @@
 	<div id="dlg" class="easyui-dialog" style="width:400px;height:auto;font-size:14px;" closed="true" buttons="#dlg-buttons">
 		<form id="fm" method="post">
 			<div class="fitem clearfloat">
-				<label>权限编号：</label>
+				<label>权限代号：</label>
 				<input class="finput" id="authId" name="authId" type="text"/>
 			</div>
 			<div class="fitem clearfloat">
@@ -57,8 +57,10 @@
 				<input class="finput" id="url" name="url" type="text"/>
 			</div>
 			<div class="fitem clearfloat">
-				<label>模块编号：</label>
-				<input class="finput" id="moduleId" name="moduleId" type="text"/>
+				<label>模块代号：</label>
+				<input class="easyui-combobox" style="width:60%;height:30px;font-size:14px;text-align:left;" 
+				     id="moduleId" name="moduleId"  editable="false" panelHeight='auto'
+					 data-options="valueField:'moduleId',textField:'moduleName',url:'moduleList.action'"/>  
 			</div>
 		</form>
 	</div>
