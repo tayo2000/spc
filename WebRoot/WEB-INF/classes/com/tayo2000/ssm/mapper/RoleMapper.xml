@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    " http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">  
+    
+  <mapper namespace="com.tayo2000.ssm.mapper.RoleMapper">
+  	<select id="list" resultType="Role">
+  		select * from role order by roleId;
+  	</select>
+  	
+	<delete id="delete" parameterType="String">
+		delete from role where roleId=#{value} 
+	</delete>
+	
+	<insert id="add" parameterType="Role">
+		insert into role(roleId,roleName,roleDesc) 
+		values(#{roleId},#{roleName},#{roleDesc})
+	</insert>
+	
+	<update id="update" parameterType="Role">
+    	update role 
+    	set roleDesc=#{roleDesc},roleName=#{roleName}
+    	where roleId=#{roleId}
+    </update>
+  </mapper>

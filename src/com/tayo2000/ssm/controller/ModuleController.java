@@ -1,5 +1,7 @@
 package com.tayo2000.ssm.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,25 @@ public class ModuleController {
 	public List<Module> moduleList() throws Exception{
 		List<Module> list=moduleService.list();
 		return list;
+	}
+	
+	
+	@RequestMapping("/moduleList2")
+	@ResponseBody
+	public List<HashMap<String,String>> moduleList2() throws Exception{
+		List<Module> list=moduleService.list();
+		List<HashMap<String,String>> list2=new ArrayList<HashMap<String,String>>();
+		for(Module m: list){
+			HashMap<String, String> hm=new HashMap<String, String>();
+			hm.put("moduleId", m.getModuleId());
+			hm.put("moduleName",m.getModuleName());
+			hm.put("ckbAdd", m.getModuleId()+"Add");
+			hm.put("ckbDelete",  m.getModuleId()+"Delete");
+			hm.put("ckbUpdate",  m.getModuleId()+"Update");
+			hm.put("ckbList", m.getModuleId()+"List");
+			list2.add(hm);
+		}
+		return list2;
 	}
 	
 	

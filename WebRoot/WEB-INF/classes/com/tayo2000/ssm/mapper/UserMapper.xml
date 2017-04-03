@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    " http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">  
+    
+  <mapper namespace="com.tayo2000.ssm.mapper.UserMapper">
+  	<select id="listAll" resultType="User">
+  		select * from user order by userId
+  	</select>
+  	
+  	<select id="find" parameterType="String" resultType="User">
+  		select * from user where username=#{value}
+  	</select>
+	
+	<delete id="delete" parameterType="User">
+		delete from user where username=#{username} 
+	</delete>
+	
+	<insert id="add" parameterType="User">
+		insert into user(username,password,email,role,fNo,loginState,loginCount,loginTime) 
+		values(#{username},#{password},#{email},#{role},#{fNo},#{loginState},#{loginCount},#{loginTime})
+	</insert>
+	
+	<update id="updateInfo" parameterType="User">
+    	update user
+    	set email=#{email},role=#{role},fNo=#{fNo}
+    	where username=#{username}
+    </update>
+    
+    <update id="updateState" parameterType="User">
+    	update user
+    	set loginState=#{loginState},loginCount=#{loginCount},loginTime=#{loginTime}
+    	where username=#{username}
+    </update>
+    
+    <update id="updatePassword" parameterType="User">
+    	update user
+    	set password=#{password}
+    	where username=#{username}
+    </update>
+  </mapper>

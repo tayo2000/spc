@@ -47,6 +47,10 @@ function deleteAuth(){
 	}
 }
 
+function mngAuth(){
+	addTab("配置权限","jsp/auth/authMng.jsp");
+}
+
 function refreshAuth(){
 	$('#dg').datagrid('reload');
 }

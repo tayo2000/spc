@@ -15,7 +15,7 @@
 	<script type="text/javascript" src="js/common.js"></script>
 	<script type="text/javascript" src="js/auth.js"></script>
 </head>
-<body class="easyui-layout" >	
+<body class="easyui-layout" id="authTab" >	
 		<!-- 权限列表   有工具栏 -->
 		<table id="dg" title="权限列表" class="easyui-datagrid" style="width:100%;height:auto" 
 			url="authList.action" toolbar="#toolbar" rownumbers="true" fitColumns="true" singleSelect="true" >
@@ -35,6 +35,7 @@
 			<a class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editAuth()">编辑</a>
 			<a class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="deleteAuth()">删除</a>
 			<a class="easyui-linkbutton" iconCls="icon-reload" plain="true" onclick="refreshAuth()">刷新</a>
+			<a class="easyui-linkbutton" iconCls="icon-directory" plain="true" onclick="mngAuth()">分配</a>
 		</div>
 	
 	<!-- 对话框 -->

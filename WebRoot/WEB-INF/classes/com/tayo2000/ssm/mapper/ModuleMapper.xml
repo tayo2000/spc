@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    " http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">  
+    
+  <mapper namespace="com.tayo2000.ssm.mapper.ModuleMapper">
+  	<select id="list" resultType="Module">
+  		select * from module 
+  	</select>
+  	
+  	<select id="listById" resultType="String">
+  		select * from module where moduleId=#{value}
+  	</select>
+  	
+	<delete id="delete" parameterType="String">
+		delete from module where moduleId=#{value} 
+	</delete>
+	
+	<insert id="add" parameterType="Module">
+		insert into module(moduleId,moduleName,moduleDesc) 
+		values(#{moduleId},#{moduleName},#{moduleDesc})
+	</insert>
+	
+	<update id="update" parameterType="Module">
+    	update module
+    	set moduleDesc=#{moduleDesc},moduleName=#{moduleName}
+    	where moduleId=#{moduleId}
+    </update>
+  </mapper>

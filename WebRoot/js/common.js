@@ -28,9 +28,9 @@ function addTab(subtitle,url){
 	tabClose();
 }
 
-function tabContentLoad(title,url){
-	var tab=$("#tabs").tabs('getSelected');
-	$('#tabs').tabs('update', {
+function reloadTab(title,url){
+	var tab=parent.$("#tabs").tabs('getSelected');
+	parent.$('#tabs').tabs('update', {
 		tab: tab,
 		options: {
 			title: title,

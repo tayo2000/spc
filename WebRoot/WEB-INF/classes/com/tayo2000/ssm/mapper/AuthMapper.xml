@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    " http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">  
+    
+  <mapper namespace="com.tayo2000.ssm.mapper.AuthMapper">
+  	<select id="list" resultType="Auth">
+  		select * from auth order by authId
+  	</select>
+  	
+	<delete id="delete" parameterType="String">
+		delete from auth where authId=#{value} 
+	</delete>
+	
+	<insert id="add" parameterType="Auth">
+		insert into auth(authId,authName,authDesc,url,moduleId) 
+		values(#{authId},#{authName},#{authDesc},#{url},#{moduleId})
+	</insert>
+	
+	<update id="update" parameterType="Auth">
+    	update auth
+    	set authName=#{authName},authDesc=#{authDesc},url=#{url},moduleId=#{moduleId}
+    	where authId=#{authId}
+    </update>
+  </mapper>

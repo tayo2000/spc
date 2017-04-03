@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    " http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">  
+  <mapper namespace="com.tayo2000.ssm.mapper.ProductMapper">
+  	<sql id="productQueryCondition">
+		<if test="product!=null">
+			<if test="product.fNo!=null and product.fNo!=''">
+   				and fNo=#{product.fNo}
+   			</if>
+   			<if test="product.pNo!=null and product.pNo!=''">
+   				and pNo=#{product.pNo}
+   			</if>
+   			<if test="product.pName!=null and product.pName!=''">
+   				and pName like '%${product.pName}%'
+   			</if>
+   			<if test="product.pType!=null and product.pType!=''">
+   				and pType=#{product.pType}
+   			</if>
+  	 	</if>
+	</sql>
+	
+      <select id="findByFno" parameterType="String" resultType="Product">
+  		select * from product where fNo=#{value} order by pNo
+  	</select>
+  	
+    <select id="findByCondition" parameterType="ProductQuery" resultType="Product">
+		select * from product
+     	<where>
+     		<include refid="productQueryCondition"></include>	
+     	</where>
+     	order by pNo
+	</select>
+	
+	<select id="getTotalRecord" parameterType="ProductQuery" resultType="Integer">
+		select count(1) from product
+		<where>
+			<include refid="productQueryCondition"></include>	
+		</where>
+	</select>
+	
+	<select id="listByPagination" parameterType="ProductQuery" resultType="Product">
+		select * from product 
+		<where>
+			<include refid="productQueryCondition"></include>	
+		</where>
+		 ORDER BY pNo  LIMIT #{pager.startPos},#{pager.pageSize};
+	</select>
+	
+	<delete id="deleteByCondition" parameterType="ProductQuery">
+		delete from product 
+		<where>
+			<include refid="productQueryCondition"></include>
+		</where>
+	</delete>
+	
+	<delete id="delete" parameterType="Product">
+		delete from product where pNo=#{pNo} and fNo=#{fNo}
+	</delete>
+	
+	<insert id="add" parameterType="Product">
+		insert into product(fNo,pNo,pName,pType) values(#{fNo},#{pNo},#{pName},#{pType})
+	</insert>
+	
+	<update id="update" parameterType="Product">
+    	update product set pName=#{pName},pType=#{pType} where pNo=#{pNo} and fNo=#{fNo}
+    </update>
+  </mapper>
