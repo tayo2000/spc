@@ -17,13 +17,11 @@
 	<script type="text/javascript">
 		function formatOper(val,row,index){  
 			return "<input type='checkbox' name='"+val+"' value='"+val+"'/>";
-		} 
+		}
 		function grantAuth(){
 			var rows=$("#dg").datagrid("getRows");
 			var colLength=$("#dg").datagrid("getColumnFields").length;
 			var cols=$("#dg").datagrid("options").columns;
-			
-		
 			for(var i=0;i<rows.length;i++){
 				for(var j=0;j<colLength;j++)
 					console.info(rows[i][cols[0][j].field]);
