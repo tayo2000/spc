@@ -16,16 +16,25 @@
 	<script type="text/javascript" src="js/auth.js"></script>
 	<script type="text/javascript">
 		function formatOper(val,row,index){  
-			return "<input type='checkbox' name='"+val+"' value='"+val+"'/>";
+			return "<input type='checkbox' name='"+val+"'>";
 		}
+		
 		function grantAuth(){
-			var rows=$("#dg").datagrid("getRows");
-			var colLength=$("#dg").datagrid("getColumnFields").length;
-			var cols=$("#dg").datagrid("options").columns;
-			for(var i=0;i<rows.length;i++){
-				for(var j=0;j<colLength;j++)
-					console.info(rows[i][cols[0][j].field]);
-			}
+			$('#fm').form('submit',{
+				url: "authMng.action",
+				onSubmit: function(){
+					return $(this).form('validate');
+				},
+				success:function(data){
+					parent.$('#tabs').tabs('close',"配置权限");
+					var selTab=parent.$('#tabs').tabs('select',"权限列表");
+					var url =$(selTab.panel('options').content).attr('src');
+					 $('#tabs').tabs('update', {
+					        tab : selTab,
+					        options : {href : url}
+					 });
+				}
+			});
 		}
 	</script>
 </head>

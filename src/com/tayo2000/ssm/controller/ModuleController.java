@@ -34,10 +34,10 @@ public class ModuleController {
 			HashMap<String, String> hm=new HashMap<String, String>();
 			hm.put("moduleId", m.getModuleId());
 			hm.put("moduleName",m.getModuleName());
-			hm.put("ckbAdd", m.getModuleId()+"Add");
-			hm.put("ckbDelete",  m.getModuleId()+"Delete");
-			hm.put("ckbUpdate",  m.getModuleId()+"Update");
-			hm.put("ckbList", m.getModuleId()+"List");
+			hm.put("ckbAdd", m.getModuleId()+"_Add");
+			hm.put("ckbDelete",  m.getModuleId()+"_Delete");
+			hm.put("ckbUpdate",  m.getModuleId()+"_Update");
+			hm.put("ckbList", m.getModuleId()+"_List");
 			list2.add(hm);
 		}
 		return list2;

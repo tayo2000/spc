@@ -8,7 +8,7 @@
   		select * from module 
   	</select>
   	
-  	<select id="listById" resultType="String">
+  	<select id="listById" parameterType="String" resultType="Module">
   		select * from module where moduleId=#{value}
   	</select>
   	
