@@ -17,7 +17,7 @@
 </head>
 <body class="easyui-layout" id="authTab" >	
 		<!-- 权限列表   有工具栏 -->
-		<table id="dg" title="权限列表" class="easyui-datagrid" style="width:100%;height:auto" 
+		<table id="dg" title="权限列表" class="easyui-datagrid" striped='true' style="width:100%;height:auto" 
 			url="authList.action" toolbar="#toolbar" rownumbers="true" fitColumns="true" singleSelect="true" >
 			<thead>
 				<tr>
@@ -37,9 +37,8 @@
 			<a class="easyui-linkbutton" iconCls="icon-reload" plain="true" onclick="refreshAuth()">刷新</a>
 			<a class="easyui-linkbutton" iconCls="icon-directory" plain="true" onclick="mngAuth()">分配</a>
 		</div>
-	
 	<!-- 对话框 -->
-	<div id="dlg" class="easyui-dialog" style="width:400px;height:auto;font-size:14px;" closed="true" buttons="#dlg-buttons">
+		<div id="dlg" class="easyui-dialog" style="width:400px;height:auto;font-size:14px;" closed="true" buttons="#dlg-buttons">
 		<form id="fm" method="post">
 			<div class="fitem clearfloat">
 				<label>权限代号：</label>
@@ -69,5 +68,7 @@
 		<a class="easyui-linkbutton" iconCls="icon-ok" onclick="saveAuth()">保存</a>
 		<a class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')">取消</a>
 	</div>
+	
+	<div id="dd"></div>
 </body>
 </html>

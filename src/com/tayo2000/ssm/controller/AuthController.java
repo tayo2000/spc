@@ -67,16 +67,19 @@ public class AuthController {
 	    	String[] info=en.nextElement().split("_");
 	    	String moduleId=info[0];
 	    	String action=info[1];
-	    	Auth au=new Auth();
-	    	au.setModuleId(moduleId);
-	    	au.setAuthId(moduleId+action);
-	    	au.setUrl("/"+moduleId+action+".action");
-	    	Module m=moduleService.listById(moduleId);
-	    	String actionName=actionMap.get(action);
-	    	String desc=actionName+m.getModuleName();
-	    	au.setAuthDesc(desc);
-	    	au.setAuthName(desc);
-	    	authService.add(au);
+	    	String authId=moduleId+action;
+	    	if(authService.listById(authId)==null) {
+	    		Auth au=new Auth();
+		    	au.setModuleId(moduleId);
+		    	au.setAuthId(authId);
+		    	au.setUrl("/"+moduleId+action+".action");
+		    	Module m=moduleService.listById(moduleId);
+		    	String actionName=actionMap.get(action);
+		    	String desc=actionName+m.getModuleName();
+		    	au.setAuthDesc(desc);
+		    	au.setAuthName(desc);
+		    	authService.add(au);
+	    	}
 	    }
 	    return "ok";
 	}

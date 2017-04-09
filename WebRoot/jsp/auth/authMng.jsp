@@ -18,7 +18,6 @@
 		function formatOper(val,row,index){  
 			return "<input type='checkbox' name='"+val+"'>";
 		}
-		
 		function grantAuth(){
 			$('#fm').form('submit',{
 				url: "authMng.action",
@@ -27,12 +26,7 @@
 				},
 				success:function(data){
 					parent.$('#tabs').tabs('close',"配置权限");
-					var selTab=parent.$('#tabs').tabs('select',"权限列表");
-					var url =$(selTab.panel('options').content).attr('src');
-					 $('#tabs').tabs('update', {
-					        tab : selTab,
-					        options : {href : url}
-					 });
+					parent.$('#tabs').tabs('select',"权限列表");
 				}
 			});
 		}

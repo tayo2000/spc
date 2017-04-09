@@ -36,6 +36,13 @@ public class AuthServiceImpl implements AuthService {
 		// TODO Auto-generated method stub
 		return mapper.delete(authId);
 	}
+
+
+	@Override
+	public Auth listById(String id) throws Exception {
+		// TODO Auto-generated method stub
+		return mapper.listById(id);
+	}
 	
 	
 }

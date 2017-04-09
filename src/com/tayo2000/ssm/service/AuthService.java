@@ -9,4 +9,5 @@ public interface AuthService {
 	public int delete(String authId)throws Exception;
 	public int add(Auth auth) throws Exception;
 	public int update(Auth auth) throws Exception;
+	public Auth listById(String id) throws Exception;
 }

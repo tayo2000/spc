@@ -8,6 +8,10 @@
   		select * from auth order by authId
   	</select>
   	
+  	<select id="listById" parameterType="String" resultType="Auth">
+  		select * from auth where authId=#{value}  order by authId
+  	</select>
+  	
 	<delete id="delete" parameterType="String">
 		delete from auth where authId=#{value} 
 	</delete>

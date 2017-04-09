@@ -43,6 +43,11 @@ function deleteRole(){
 	}
 }
 
+function assignAuth(){
+	
+	
+}
+
 function refreshRole(){
 	$('#dg').datagrid('reload');
 }

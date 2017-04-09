@@ -4,9 +4,6 @@
 .icon-add{
 	background:url('icons/edit_add.png') no-repeat center center;
 }
-.icon-directory{
-	background:url('icons/directory.png') no-repeat center center;
-}
 .icon-edit{
 	background:url('icons/pencil.png') no-repeat center center;
 }
@@ -66,6 +63,9 @@
 }
 .icon-lock{
 	background:url('icons/lock.png') no-repeat center center;
+}
+.icon-more{
+	background:url('icons/more.png') no-repeat center center;
 }
 
 

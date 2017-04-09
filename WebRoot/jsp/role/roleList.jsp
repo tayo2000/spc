@@ -32,6 +32,7 @@
 			<a class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="addRole()">添加</a>
 			<a class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editRole()">编辑</a>
 			<a class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="deleteRole()">删除</a>
+			<a class="easyui-linkbutton" iconCls="icon-reload" plain="true" onclick="assignAuth()">分配权限</a>
 			<a class="easyui-linkbutton" iconCls="icon-reload" plain="true" onclick="refreshRole()">刷新</a>
 		</div>
 	
