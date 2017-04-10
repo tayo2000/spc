@@ -44,10 +44,32 @@ function deleteRole(){
 }
 
 function assignAuth(){
-	
-	
+	$('#dlg2').dialog('open').dialog('setTitle','分配权限');
 }
 
+function selectAuth(){
+	var selList=$("#authList").datalist("getSelections");
+	var selectedList=$("#authSelectedList").datalist("getRows");
+	for(var i=0;i<selList.length;i++){
+		var flag=true;
+		for(var j=0;j<selectedList.length;j++){
+			if(selList[i]==selectedList[j]) {
+				flag=false;
+				break;
+			}
+		}
+		if(flag==true){
+			$("#authSelectedList").datalist("appendRow",selList[i]);
+		}
+	}
+}
+function cancelAuth(){
+	var selAuth=$("#authSelectedList").datalist("getSelections");
+	for(var i=0;i<selAuth.length;i++){
+		 var rowIndex = $('#authSelectedList').datalist('getRowIndex', selAuth[i]);
+		 $('#authSelectedList').datalist('deleteRow', rowIndex);  
+	}
+}
 function refreshRole(){
 	$('#dg').datagrid('reload');
 }

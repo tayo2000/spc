@@ -57,5 +57,19 @@
 		<a class="easyui-linkbutton" iconCls="icon-ok" onclick="saveRole()">保存</a>
 		<a class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')">取消</a>
 	</div>
+	
+	<div id="dlg2"  class="easyui-dialog"  
+		 data-options="iconCls:'icon-save', 
+				  href:'jsp/auth/authAssign.jsp',
+				  closed:true,
+				  title:'Basic Dialog',
+				  buttons:'#dlg2-buttons'
+				 " 
+		 style="width:420px;height:auto;padding:10px 20px ">
+    </div>
+    <div id="dlg2-buttons">
+		<a class="easyui-linkbutton" iconCls="icon-ok" onclick="">分配</a>
+		<a class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')">取消</a>
+	</div>
 </body>
 </html>
