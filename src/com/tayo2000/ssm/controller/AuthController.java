@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.tayo2000.ssm.po.Auth;
+import com.tayo2000.ssm.po.AuthRole;
 import com.tayo2000.ssm.po.Module;
+import com.tayo2000.ssm.service.AuthRoleService;
 import com.tayo2000.ssm.service.AuthService;
 import com.tayo2000.ssm.service.ModuleService;
 
@@ -28,7 +30,7 @@ public class AuthController {
 	}
 	@Autowired
 	private AuthService authService;
-	
+
 	@Autowired
 	private ModuleService moduleService;
 	
@@ -52,10 +54,11 @@ public class AuthController {
 		return "auth/authList";
 	}
 	
-	@RequestMapping("/authListAdd")
-	public String authListAdd(Auth[] authList) throws Exception{
-		
-		return "auth/authList";
+	@RequestMapping("/authRoleAdd")
+	@ResponseBody
+	public String authRoleAdd(AuthRole[] authRoleList) throws Exception{
+	
+		return "ok";
 	}
 	
 	@RequestMapping("/authUpdate")
