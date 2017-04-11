@@ -32,7 +32,7 @@
 			<a class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="addRole()">添加</a>
 			<a class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editRole()">编辑</a>
 			<a class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="deleteRole()">删除</a>
-			<a class="easyui-linkbutton" iconCls="icon-reload" plain="true" onclick="assignAuth()">分配权限</a>
+			<a class="easyui-linkbutton" iconCls="icon-reload" plain="true" onclick="openAuth()">分配权限</a>
 			<a class="easyui-linkbutton" iconCls="icon-reload" plain="true" onclick="refreshRole()">刷新</a>
 		</div>
 	
@@ -68,8 +68,8 @@
 		 style="width:420px;height:auto;padding:10px 20px ">
     </div>
     <div id="dlg2-buttons">
-		<a class="easyui-linkbutton" iconCls="icon-ok" onclick="">分配</a>
-		<a class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')">取消</a>
+		<a class="easyui-linkbutton" iconCls="icon-ok" onclick="assignAuth()">分配</a>
+		<a class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg2').dialog('close')">重置</a>
 	</div>
 </body>
 </html>

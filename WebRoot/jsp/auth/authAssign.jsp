@@ -28,9 +28,9 @@
    		   </div>
  		</td>
  		<td>
- 			<input type="button" onclick="selectAuth()" value=">>"/>
+ 			<input type="button" onclick="leftToRight()" value=">>"/>
  				<br/><br/>
- 			<input type="button" onclick="cancelAuth()" value="<<"/>
+ 			<input type="button" onclick="rightToLeft()" value="<<"/>
  		</td>
  		<td style="padding:5px;">
  			<div id="authSelectedList" class="easyui-datalist" title="已选权限列表" style="width:150px;height:300px;" data-options="

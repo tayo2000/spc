@@ -43,11 +43,31 @@ function deleteRole(){
 	}
 }
 
-function assignAuth(){
-	$('#dlg2').dialog('open').dialog('setTitle','分配权限');
+function refreshRole(){
+	$('#dg').datagrid('reload');
 }
 
-function selectAuth(){
+function openAuth(){
+	$('#dlg2').dialog('open').dialog('setTitle','分配权限');
+	$('#selAuth').datalist('reload');
+}
+
+function assignAuth(){
+	var authList=$("#authSelectedList").datalist("getRows");
+	console.log(JSON.stringify(authList));
+	 $.ajax({
+         type:'POST',
+         url:'authAdd.action',
+         dataType:"json",      
+         contentType:"application/json",   
+         data:JSON.stringify(authList),
+         success:function(){			
+     
+         }
+    });
+}
+
+function leftToRight(){
 	var selList=$("#authList").datalist("getSelections");
 	var selectedList=$("#authSelectedList").datalist("getRows");
 	for(var i=0;i<selList.length;i++){
@@ -60,16 +80,25 @@ function selectAuth(){
 		}
 		if(flag==true){
 			$("#authSelectedList").datalist("appendRow",selList[i]);
+			var rowIndex = $('#authList').datalist('getRowIndex', selList[i]);
+			$("#authList").datalist('deleteRow', rowIndex);  
 		}
 	}
+	$('#authSelectedList').datalist('sort', {
+		sortName: 'authName',
+		sortOrder: 'asc'
+	});
+//	$("#authList").datalist("unselectAll");
 }
-function cancelAuth(){
-	var selAuth=$("#authSelectedList").datalist("getSelections");
-	for(var i=0;i<selAuth.length;i++){
-		 var rowIndex = $('#authSelectedList').datalist('getRowIndex', selAuth[i]);
+function rightToLeft(){
+	var selectedList=$("#authSelectedList").datalist("getSelections");
+	for(var i=0;i<selectedList.length;i++){
+		 $("#authList").datalist('appendRow', selectedList[i]);  
+		 var rowIndex = $('#authSelectedList').datalist('getRowIndex', selectedList[i]);
 		 $('#authSelectedList').datalist('deleteRow', rowIndex);  
 	}
-}
-function refreshRole(){
-	$('#dg').datagrid('reload');
+	$('#authList').datalist('sort', {
+		sortName: 'authName',
+		sortOrder: 'asc'
+	});
 }

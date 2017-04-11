@@ -52,6 +52,12 @@ public class AuthController {
 		return "auth/authList";
 	}
 	
+	@RequestMapping("/authListAdd")
+	public String authListAdd(Auth[] authList) throws Exception{
+		
+		return "auth/authList";
+	}
+	
 	@RequestMapping("/authUpdate")
 	public String authUpdate(Auth auth) throws Exception{
 		authService.update(auth);
