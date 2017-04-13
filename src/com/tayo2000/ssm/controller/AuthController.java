@@ -8,13 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.tayo2000.ssm.po.Auth;
 import com.tayo2000.ssm.po.AuthRole;
 import com.tayo2000.ssm.po.Module;
-import com.tayo2000.ssm.service.AuthRoleService;
 import com.tayo2000.ssm.service.AuthService;
 import com.tayo2000.ssm.service.ModuleService;
 
@@ -54,11 +54,11 @@ public class AuthController {
 		return "auth/authList";
 	}
 	
-	@RequestMapping("/authRoleAdd")
+	@RequestMapping(value="/authRoleAdd")
 	@ResponseBody
-	public String authRoleAdd(AuthRole[] authRoleList) throws Exception{
+	public void  authRoleAdd(@RequestBody AuthRole[] authRoles) throws Exception{
+		System.out.println("DD");
 	
-		return "ok";
 	}
 	
 	@RequestMapping("/authUpdate")

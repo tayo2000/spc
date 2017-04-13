@@ -48,21 +48,31 @@ function refreshRole(){
 }
 
 function openAuth(){
+	var row = $('#dg').datagrid('getSelected');
+	if(!row) return;
 	$('#dlg2').dialog('open').dialog('setTitle','分配权限');
-	$('#selAuth').datalist('reload');
+	
 }
 
 function assignAuth(){
 	var authList=$("#authSelectedList").datalist("getRows");
-	console.log(JSON.stringify(authList));
+	var row = $('#dg').datagrid('getSelected');
+	var arList=new Array();
+	for(var i=0;i<authList.length;i++){
+		var ar=new Object();
+		ar.roleId=row.roleId;
+		ar.authId=authList[i].authId;
+		arList.push(ar);
+	}
+	console.log(JSON.stringify(arList));
 	 $.ajax({
          type:'POST',
-         url:'authAdd.action',
+         url:'authRoleAdd.action',
          dataType:"json",      
          contentType:"application/json",   
-         data:JSON.stringify(authList),
+         data:JSON.stringify([{roleId:"1",auhtId:"cehshi1"},{roleId:"2",auhtId:"ceshi2"}]),
          success:function(){			
-     
+        	 $('#dlg2').dialog('close');		// close the dialog
          }
     });
 }
@@ -84,12 +94,13 @@ function leftToRight(){
 			$("#authList").datalist('deleteRow', rowIndex);  
 		}
 	}
+	$("#authList").datalist("unselectAll");
 	$('#authSelectedList').datalist('sort', {
 		sortName: 'authName',
 		sortOrder: 'asc'
 	});
-//	$("#authList").datalist("unselectAll");
 }
+
 function rightToLeft(){
 	var selectedList=$("#authSelectedList").datalist("getSelections");
 	for(var i=0;i<selectedList.length;i++){
@@ -97,6 +108,7 @@ function rightToLeft(){
 		 var rowIndex = $('#authSelectedList').datalist('getRowIndex', selectedList[i]);
 		 $('#authSelectedList').datalist('deleteRow', rowIndex);  
 	}
+	$("#authSelectedList").datalist("unselectAll");
 	$('#authList').datalist('sort', {
 		sortName: 'authName',
 		sortOrder: 'asc'
