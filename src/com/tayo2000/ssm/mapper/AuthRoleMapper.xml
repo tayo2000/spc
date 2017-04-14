@@ -9,6 +9,10 @@
   		select * from authrole order by authroleId
   	</select>
   	
+    <select id="listByRoleId" parameterType="String" resultType="AuthRole">
+  		select * from authrole where roleId=#{value} 
+  	</select>
+  	
 	<delete id="delete" parameterType="UserRole">
 		delete from authrole where  authId=#{authId}  and roleId=#{roleId}
 	</delete>

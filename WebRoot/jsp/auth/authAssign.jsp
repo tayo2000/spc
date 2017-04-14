@@ -34,6 +34,7 @@
  		</td>
  		<td style="padding:5px;">
  			<div id="authSelectedList" class="easyui-datalist" title="已选权限列表" style="width:150px;height:300px;" data-options="
+	            url: 'authSelectedList.action',
 	            singleSelect: false,
 	            textField:'authName',
 	            valueField:'authId'

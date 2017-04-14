@@ -29,4 +29,10 @@ public class AuthRoleServiceImpl implements AuthRoleService {
 		return mapper.delete(ar);
 	}
 
+	@Override
+	public List<AuthRole> listByRoleId(String roleId) throws Exception {
+		// TODO Auto-generated method stub
+		return mapper.listByRoleId(roleId);
+	}
+
 }

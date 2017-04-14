@@ -43,6 +43,13 @@ public class AuthServiceImpl implements AuthService {
 		// TODO Auto-generated method stub
 		return mapper.listById(id);
 	}
+
+
+	@Override
+	public List<Auth> listByRoleId(String roleId) throws Exception {
+		// TODO Auto-generated method stub
+		return mapper.listByRoleId(roleId);
+	}
 	
 	
 }

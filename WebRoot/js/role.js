@@ -65,14 +65,15 @@ function assignAuth(){
 		arList.push(ar);
 	}
 	console.log(JSON.stringify(arList));
+	
 	 $.ajax({
          type:'POST',
          url:'authRoleAdd.action',
-         dataType:"json",      
-         contentType:"application/json",   
-         data:JSON.stringify([{roleId:"1",auhtId:"cehshi1"},{roleId:"2",auhtId:"ceshi2"}]),
-         success:function(){			
-        	 $('#dlg2').dialog('close');		// close the dialog
+         dataType:'json',      
+         contentType:'application/json',   
+         data:JSON.stringify(arList),
+         success: function(data){		
+        	 $('#dlg2').dialog('close');	// close the dialog
          }
     });
 }

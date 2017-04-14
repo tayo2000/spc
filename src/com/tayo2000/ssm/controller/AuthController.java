@@ -56,9 +56,17 @@ public class AuthController {
 	
 	@RequestMapping(value="/authRoleAdd")
 	@ResponseBody
-	public void  authRoleAdd(@RequestBody AuthRole[] authRoles) throws Exception{
-		System.out.println("DD");
+	public List<Auth>  authRoleAdd(@RequestBody AuthRole[] authRoles) throws Exception{
+		List<Auth> list=authService.list();
+		return list;
+	}
 	
+	
+	@RequestMapping("/authSelectedList")
+	@ResponseBody
+	public List<Auth> authSelectedList(String roleId) throws Exception{
+		List<Auth> list=authService.listByRoleId(roleId);
+		return list;
 	}
 	
 	@RequestMapping("/authUpdate")
