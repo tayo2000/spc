@@ -13,6 +13,10 @@
   		select * from authrole where roleId=#{value} 
   	</select>
   	
+  	<select id="isExist" parameterType="AuthRole" resultType="Integer">
+  		select count(1) from authrole where roleId=#{roleId} and authId=#{authId}
+  	</select>
+  	
 	<delete id="delete" parameterType="AuthRole">
 		delete from authrole where  authId=#{authId}  and roleId=#{roleId}
 	</delete>
