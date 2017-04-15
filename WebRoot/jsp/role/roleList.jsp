@@ -60,12 +60,37 @@
 	
 	<div id="dlg2"  class="easyui-dialog"  
 		 data-options="iconCls:'icon-save', 
-				  href:'jsp/auth/authAssign.jsp',
 				  closed:true,
-				  title:'Basic Dialog',
-				  buttons:'#dlg2-buttons'
-				 " 
+				  title:'分配权限',
+				  modal:true,
+				  buttons:'#dlg2-buttons'" 
 		 style="width:420px;height:auto;padding:10px 20px ">
+		 <table style="padding:5px;">
+		 	<tr>
+		 		<td  style="padding:5px;">
+		 			<div id="authList" class="easyui-datalist" title="可选权限列表" style="width:150px;height:300px;" data-options="
+			            url: 'authList.action',
+			            singleSelect: false,
+			            textField:'authName',
+			            valueField:'authId'
+			            ">
+		   		   </div>
+		 		</td>
+		 		<td>
+		 			<input type="button" onclick="leftToRight()" value=">>"/>
+		 				<br/><br/>
+		 			<input type="button" onclick="rightToLeft()" value="<<"/>
+		 		</td>
+		 		<td style="padding:5px;">
+		 			<div id="authSelectedList" class="easyui-datalist" title="已选权限列表" style="width:150px;height:300px;" data-options="
+			            singleSelect: false,
+			            textField:'authName',
+			            valueField:'authId'
+			            ">
+		   		  </div>
+		 		</td>
+		 	</tr>
+ 		</table>
     </div>
     <div id="dlg2-buttons">
 		<a class="easyui-linkbutton" iconCls="icon-ok" onclick="assignAuth()">分配</a>

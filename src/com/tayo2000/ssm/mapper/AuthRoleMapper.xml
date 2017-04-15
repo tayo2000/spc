@@ -13,11 +13,11 @@
   		select * from authrole where roleId=#{value} 
   	</select>
   	
-	<delete id="delete" parameterType="UserRole">
+	<delete id="delete" parameterType="AuthRole">
 		delete from authrole where  authId=#{authId}  and roleId=#{roleId}
 	</delete>
 	
-	<insert id="add" parameterType="UserRole">
+	<insert id="add" parameterType="AuthRole">
 		insert into authrole(authId,roleId) 
 		values(#{authId},#{roleId})
 	</insert>

@@ -1,5 +1,6 @@
 package com.tayo2000.ssm.controller;
 
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.tayo2000.ssm.po.Auth;
 import com.tayo2000.ssm.po.AuthRole;
 import com.tayo2000.ssm.po.Module;
+import com.tayo2000.ssm.service.AuthRoleService;
 import com.tayo2000.ssm.service.AuthService;
 import com.tayo2000.ssm.service.ModuleService;
 
@@ -30,6 +32,9 @@ public class AuthController {
 	}
 	@Autowired
 	private AuthService authService;
+	
+	@Autowired
+	private AuthRoleService authRoleService;
 
 	@Autowired
 	private ModuleService moduleService;
@@ -56,11 +61,22 @@ public class AuthController {
 	
 	@RequestMapping(value="/authRoleAdd")
 	@ResponseBody
-	public List<Auth>  authRoleAdd(@RequestBody AuthRole[] authRoles) throws Exception{
-		List<Auth> list=authService.list();
-		return list;
+	public HashMap<String, String> authRoleAdd(@RequestBody AuthRole[] authRoles) throws Exception{
+		for(int i=0;i<authRoles.length;i++){
+			AuthRole ar=authRoles[i];
+			boolean flag=true;
+			List<AuthRole> arList=authRoleService.listByRoleId(ar.getRoleId());
+			for(AuthRole arSelected:arList){
+				if(arSelected.getAuthId().equals(ar.getAuthId())){
+					flag=false;break;
+				}
+			}
+			if(flag) authRoleService.add(authRoles[i]);
+		}
+		HashMap<String,String> result=new HashMap<String,String>();
+		result.put("success", "ok");
+		return result;
 	}
-	
 	
 	@RequestMapping("/authSelectedList")
 	@ResponseBody
@@ -98,6 +114,6 @@ public class AuthController {
 		    	authService.add(au);
 	    	}
 	    }
-	    return "ok";
+	    return "ok" ;
 	}
 }

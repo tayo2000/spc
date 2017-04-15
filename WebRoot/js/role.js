@@ -50,8 +50,11 @@ function refreshRole(){
 function openAuth(){
 	var row = $('#dg').datagrid('getSelected');
 	if(!row) return;
-	$('#dlg2').dialog('open').dialog('setTitle','分配权限');
-	
+	var  roleId=row.roleId;
+	$('#authSelectedList').datalist({
+	    url:'authSelectedList.action?roleId='+roleId
+	});
+	$('#dlg2').dialog('open');
 }
 
 function assignAuth(){
@@ -64,18 +67,18 @@ function assignAuth(){
 		ar.authId=authList[i].authId;
 		arList.push(ar);
 	}
-	console.log(JSON.stringify(arList));
-	
 	 $.ajax({
          type:'POST',
          url:'authRoleAdd.action',
          dataType:'json',      
          contentType:'application/json',   
          data:JSON.stringify(arList),
-         success: function(data){		
+         error:function(XMLResponse){console.info(XMLResponse)},
+         success: function(){		
         	 $('#dlg2').dialog('close');	// close the dialog
          }
     });
+//	 $('#dlg2').dialog('close');
 }
 
 function leftToRight(){
@@ -96,10 +99,6 @@ function leftToRight(){
 		}
 	}
 	$("#authList").datalist("unselectAll");
-	$('#authSelectedList').datalist('sort', {
-		sortName: 'authName',
-		sortOrder: 'asc'
-	});
 }
 
 function rightToLeft(){
