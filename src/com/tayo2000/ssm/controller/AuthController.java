@@ -1,6 +1,5 @@
 package com.tayo2000.ssm.controller;
 
-import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
@@ -61,18 +60,9 @@ public class AuthController {
 	
 	@RequestMapping(value="/authRoleAdd")
 	@ResponseBody
-	public HashMap<String, String> authRoleAdd(@RequestBody AuthRole[] authRoles) throws Exception{
-		for(int i=0;i<authRoles.length;i++){
-			AuthRole ar=authRoles[i];
-			boolean flag=true;
-			List<AuthRole> arList=authRoleService.listByRoleId(ar.getRoleId());
-			for(AuthRole arSelected:arList){
-				if(arSelected.getAuthId().equals(ar.getAuthId())){
-					flag=false;break;
-				}
-			}
-			if(flag) authRoleService.add(authRoles[i]);
-		}
+	public HashMap<String, String> authRoleAdd(String roleId,@RequestBody AuthRole[] authRoles) throws Exception{
+		authRoleService.deleteByRoleId(roleId);
+		for(int i=0;i<authRoles.length;i++)	authRoleService.add(authRoles[i]);
 		HashMap<String,String> result=new HashMap<String,String>();
 		result.put("success", "ok");
 		return result;

@@ -21,6 +21,10 @@
 		delete from authrole where  authId=#{authId}  and roleId=#{roleId}
 	</delete>
 	
+	<delete id="deleteByRoleId" parameterType="String">
+		delete from authrole where  roleId=#{value}
+	</delete>
+	
 	<insert id="add" parameterType="AuthRole">
 		insert into authrole(authId,roleId) 
 		values(#{authId},#{roleId})

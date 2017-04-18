@@ -35,4 +35,16 @@ public class AuthRoleServiceImpl implements AuthRoleService {
 		return mapper.listByRoleId(roleId);
 	}
 
+	@Override
+	public int isExist(AuthRole ar) throws Exception {
+		// TODO Auto-generated method stub
+		return mapper.isExist(ar);
+	}
+
+	@Override
+	public int deleteByRoleId(String roleId) throws Exception {
+		// TODO Auto-generated method stub
+		return mapper.deleteByRoleId(roleId);
+	}
+
 }

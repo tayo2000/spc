@@ -69,7 +69,7 @@ function assignAuth(){
 	}
 	 $.ajax({
          type:'POST',
-         url:'authRoleAdd.action',
+         url:'authRoleAdd.action?roleId='+row.roleId,
          dataType:'json',      
          contentType:'application/json',   
          data:JSON.stringify(arList),
