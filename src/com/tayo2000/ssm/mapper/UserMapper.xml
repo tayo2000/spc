@@ -17,13 +17,13 @@
 	</delete>
 	
 	<insert id="add" parameterType="User">
-		insert into user(username,password,email,role,fNo,loginState,loginCount,loginTime) 
-		values(#{username},#{password},#{email},#{role},#{fNo},#{loginState},#{loginCount},#{loginTime})
+		insert into user(username,password,email,roleId,fNo,loginState,loginCount,loginTime) 
+		values(#{username},#{password},#{email},#{roleId},#{fNo},#{loginState},#{loginCount},#{loginTime})
 	</insert>
 	
 	<update id="updateInfo" parameterType="User">
     	update user
-    	set email=#{email},role=#{role},fNo=#{fNo}
+    	set email=#{email},roleId=#{roleId},fNo=#{fNo}
     	where username=#{username}
     </update>
     

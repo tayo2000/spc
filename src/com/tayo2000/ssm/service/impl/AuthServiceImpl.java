@@ -50,6 +50,13 @@ public class AuthServiceImpl implements AuthService {
 		// TODO Auto-generated method stub
 		return mapper.listByRoleId(roleId);
 	}
+
+
+	@Override
+	public List<Auth> RevListByRoleId(String roleId) throws Exception {
+		// TODO Auto-generated method stub
+		return mapper.RevListByRoleId(roleId);
+	}
 	
 	
 }

@@ -64,12 +64,11 @@
 				  title:'分配权限',
 				  modal:true,
 				  buttons:'#dlg2-buttons'" 
-		 style="width:420px;height:auto;padding:10px 20px ">
+		 style="width:450px;height:auto;padding:10px 20px ">
 		 <table style="padding:5px;">
 		 	<tr>
 		 		<td  style="padding:5px;">
-		 			<div id="authList" class="easyui-datalist" title="可选权限列表" style="width:150px;height:300px;" data-options="
-			            url: 'authList.action',
+		 			<div id="authUnSelectedList" class="easyui-datalist" title="可选权限列表" style="width:150px;height:320px;" data-options="
 			            singleSelect: false,
 			            textField:'authName',
 			            valueField:'authId'
@@ -82,7 +81,7 @@
 		 			<input type="button" onclick="rightToLeft()" value="<<"/>
 		 		</td>
 		 		<td style="padding:5px;">
-		 			<div id="authSelectedList" class="easyui-datalist" title="已选权限列表" style="width:150px;height:300px;" data-options="
+		 			<div id="authSelectedList" class="easyui-datalist" title="已选权限列表" style="width:150px;height:320px;" data-options="
 			            singleSelect: false,
 			            textField:'authName',
 			            valueField:'authId'

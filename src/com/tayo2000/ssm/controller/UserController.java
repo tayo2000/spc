@@ -54,7 +54,7 @@ public class UserController {
 			return "redirect:login.action";
 		}
 		session.setAttribute("username", username);
-		session.setAttribute("role", user.getRole());
+		session.setAttribute("role", user.getRoleId());
 		session.setAttribute("fNo", user.getfNo());
 		if(user.getLoginState()!=1){
 			user.setLoginState(1);

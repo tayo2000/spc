@@ -14,6 +14,12 @@
   		)
   	</select>
   	
+   <select id="RevListByRoleId"   parameterType="String" resultType="Auth">
+  		select * from auth where authId not in (
+  			select authId from authrole where roleId=#{value}
+  		)
+  	</select>
+  	 	
   	<select id="listById" parameterType="String" resultType="Auth">
   		select * from auth where authId=#{value}  order by authId
   	</select>

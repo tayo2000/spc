@@ -51,9 +51,8 @@ function openAuth(){
 	var row = $('#dg').datagrid('getSelected');
 	if(!row) return;
 	var  roleId=row.roleId;
-	$('#authSelectedList').datalist({
-	    url:'authSelectedList.action?roleId='+roleId
-	});
+	$('#authUnSelectedList').datalist({ url:'authUnSelectedList.action?roleId='+roleId});
+	$('#authSelectedList').datalist({url:'authSelectedList.action?roleId='+roleId});
 	$('#dlg2').dialog('open');
 }
 
@@ -82,34 +81,34 @@ function assignAuth(){
 }
 
 function leftToRight(){
-	var selList=$("#authList").datalist("getSelections");
+	var unSelectedList=$("#authUnSelectedList").datalist("getSelections");
 	var selectedList=$("#authSelectedList").datalist("getRows");
-	for(var i=0;i<selList.length;i++){
+	for(var i=0;i<unSelectedList.length;i++){
 		var flag=true;
 		for(var j=0;j<selectedList.length;j++){
-			if(selList[i]==selectedList[j]) {
+			if(unSelectedList[i]==selectedList[j]) {
 				flag=false;
 				break;
 			}
 		}
 		if(flag==true){
-			$("#authSelectedList").datalist("appendRow",selList[i]);
-			var rowIndex = $('#authList').datalist('getRowIndex', selList[i]);
-			$("#authList").datalist('deleteRow', rowIndex);  
+			$("#authSelectedList").datalist("appendRow",unSelectedList[i]);
+			var rowIndex = $('#authUnSelectedList').datalist('getRowIndex', unSelectedList[i]);
+			$("#authUnSelectedList").datalist('deleteRow', rowIndex);  
 		}
 	}
-	$("#authList").datalist("unselectAll");
+	$("#authUnSelectedList").datalist("unselectAll");
 }
 
 function rightToLeft(){
 	var selectedList=$("#authSelectedList").datalist("getSelections");
 	for(var i=0;i<selectedList.length;i++){
-		 $("#authList").datalist('appendRow', selectedList[i]);  
+		 $("#authUnSelectedList").datalist('appendRow', selectedList[i]);  
 		 var rowIndex = $('#authSelectedList').datalist('getRowIndex', selectedList[i]);
 		 $('#authSelectedList').datalist('deleteRow', rowIndex);  
 	}
 	$("#authSelectedList").datalist("unselectAll");
-	$('#authList').datalist('sort', {
+	$('#authUnSelectedList').datalist('sort', {
 		sortName: 'authName',
 		sortOrder: 'asc'
 	});

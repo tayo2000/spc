@@ -10,9 +10,8 @@ public class User {
 	private String password;
 	@Email(message="检查邮件地址")
 	private String email;
-	private String role;
+	private String roleId;
 	private String fNo;
-	
 	private int loginState;
 	private int loginCount;
 	private String  loginTime;
@@ -44,12 +43,6 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getRole() {
-		return role;
-	}
-	public void setRole(String role) {
-		this.role = role;
-	}
 	public String getfNo() {
 		return fNo;
 	}
@@ -76,12 +69,18 @@ public class User {
 		this.loginTime = loginTime;
 	}
 	
+	public String getRoleId() {
+		return roleId;
+	}
+	public void setRoleId(String roleId) {
+		this.roleId = roleId;
+	}
 	public String toString(){
 		StringBuffer sb=new StringBuffer("");
 		sb.append(username).append("\t");
 		sb.append(password).append("\t");
 		sb.append(email).append("\t");
-		sb.append(role).append("\t");
+		sb.append(roleId).append("\t");
 		sb.append(fNo).append("\t");
 		sb.append(loginState).append("\t");
 		sb.append(loginCount).append("\t");

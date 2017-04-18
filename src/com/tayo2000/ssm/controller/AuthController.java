@@ -75,6 +75,13 @@ public class AuthController {
 		return list;
 	}
 	
+	@RequestMapping("/authUnSelectedList")
+	@ResponseBody
+	public List<Auth> authUnSelectedList(String roleId) throws Exception{
+		List<Auth> list=authService.RevListByRoleId(roleId);
+		return list;
+	}
+	
 	@RequestMapping("/authUpdate")
 	public String authUpdate(Auth auth) throws Exception{
 		authService.update(auth);

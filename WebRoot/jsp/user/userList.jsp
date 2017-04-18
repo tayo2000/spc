@@ -22,7 +22,7 @@
 		#center{background-color:#eee;}
 		.accordion-collapse{background:url('images/panel_tool_collapse.gif')}
 		.accordion-expand{background:url('images/panel_tool_expand.gif')}
-		.fitem .finput{ margin-left:20px;width:70%;}
+		.fitem .finput{width:70%;}
 	</style>
 </head>
 <body class="easyui-layout" >	
@@ -34,7 +34,7 @@
 					<th field="username" width="50">用户名称</th>
 					<th field="password" width="50" hidden="true" >密码</th>  <!-- 隐藏列 -->
 					<th field="fNo" width="50">所属厂商</th>
-					<th field="role" width="50">角色</th>
+					<th field="roleId" width="50">角色</th>
 					<th field="email" width="50">电子邮件</th>
 					<th field="loginCount" width="50">登陆次数</th>
 					<th field="loginTime" width="50">最近登陆时间</th>
@@ -61,14 +61,21 @@
 				<label>密码：</label>
 				<input class="finput" name="password" type="password"/>
 			</div>
+			
 			<div class="fitem clearfloat">
 				<label>厂商：</label>
-				<input class="finput" name="fNo" type="text"/>
+				<input class="easyui-combobox" style="width:60%;height:30px;font-size:14px;text-align:left;" 
+				     id="fNo" name="fNo"  editable="false" panelHeight='auto'
+					 data-options="valueField:'fNo',textField:'fNo',url:'factoryList.action'"/>  
 			</div>
+			
 			<div class="fitem clearfloat">
 				<label>角色：</label>
-				<input class="finput" name="role" type="text"/>
+				<input class="easyui-combobox" style="width:60%;height:30px;font-size:14px;" 
+				     id="roleId" name="roleId"  editable="false" panelHeight='auto'
+					 data-options="valueField:'roleId',textField:'roleId',url:'roleList.action'"/>  
 			</div>
+			
 			<div class="fitem clearfloat">
 				<label>邮件：</label>
 				<input class="finput" name="email" type="text"/>
@@ -89,11 +96,16 @@
 			</div>
 			<div class="fitem clearfloat">
 				<label>厂商：</label>
-				<input class="finput" name="fNo" type="text"/>
+				<input class="easyui-combobox" style="width:60%;height:30px;font-size:14px;text-align:left;" 
+				     id="fNo" name="fNo"  editable="false" panelHeight='auto'
+					 data-options="valueField:'fNo',textField:'fNo',url:'factoryList.action'"/>  
 			</div>
+			
 			<div class="fitem clearfloat">
 				<label>角色：</label>
-				<input class="finput" name="role" type="text"/>
+				<input class="easyui-combobox" style="width:60%;height:30px;font-size:14px;text-align:left;" 
+				     id="roleId" name="roleId"  editable="false" panelHeight='auto'
+					 data-options="valueField:'roleId',textField:'roleId',url:'roleList.action'"/>  
 			</div>
 			<div class="fitem clearfloat">
 				<label>邮件：</label>

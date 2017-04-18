@@ -3,6 +3,15 @@ function addNewUser(){
 	$('#dlgAddUser').dialog('open').dialog('setTitle','添加用户信息');
 	$('#fmAddUser').form('clear');
 	$("input[name='username']").removeAttr("readonly");
+	$('#roleId').combobox({
+		 onLoadSuccess:function(data){ $('#roleId').combobox('setValue',data[0].roleId);}
+		
+	});  
+	$('#fNo').combobox({
+		 onLoadSuccess:function(data){ $('#fNo').combobox('setValue',data[0].fNo);}
+		
+	}); 
+	
 	url='userAdd.action';
 }
 
