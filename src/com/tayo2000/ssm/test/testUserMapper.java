@@ -68,7 +68,7 @@ public class testUserMapper {
 		MessageDigest md5=MessageDigest.getInstance("MD5");
 		md5.update("123456".getBytes());
 		user.setPassword(new BigInteger(1,md5.digest()).toString(16));
-		user.setRole("admin");
+		user.setRoleId("admin");
 		user.setEmail("tayo2000@163.com");
 		service.add(user);
 	}
