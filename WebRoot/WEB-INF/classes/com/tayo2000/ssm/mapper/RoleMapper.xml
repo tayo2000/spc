@@ -22,4 +22,16 @@
     	set roleDesc=#{roleDesc},roleName=#{roleName}
     	where roleId=#{roleId}
     </update>
+    
+    <select id="listByUser"   parameterType="String" resultType="Role">
+  		select * from role where roleId in (
+  			select roleId from userrole where username=#{value}
+  		)
+  	</select>
+  	
+   <select id="RevListByUser"   parameterType="String" resultType="Role">
+  		select * from role where roleId not in (
+  			select roleId from userrole where username=#{value}
+  		)
+  	</select>
   </mapper>

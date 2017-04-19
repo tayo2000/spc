@@ -1,20 +1,20 @@
 package com.tayo2000.ssm.po;
 
 public class UserRole {
-	int userroleId;
-	int userId;
-	int roleId;
+	private int userroleId;
+	private String userName;
+	private int roleId;
 	public int getUserroleId() {
 		return userroleId;
 	}
 	public void setUserroleId(int userroleId) {
 		this.userroleId = userroleId;
 	}
-	public int getUserId() {
-		return userId;
+	public String getUserName() {
+		return userName;
 	}
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUserName(String userName) {
+		this.userName =userName;
 	}
 	public int getRoleId() {
 		return roleId;
@@ -24,7 +24,7 @@ public class UserRole {
 	}
 	public String toString(){
 		StringBuffer sb=new StringBuffer("");
-		sb.append(userroleId+"\t"+userId+"\t"+roleId);
+		sb.append(userroleId+"\t"+userName+"\t"+roleId);
 		return sb.toString();
 	}
 }

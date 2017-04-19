@@ -15,6 +15,15 @@ function addNewUser(){
 	url='userAdd.action';
 }
 
+function addUserRole(){
+	var row = $('#dg').datagrid('getSelected');
+	if(!row) return;
+	var username=row.username;
+	$('#roleUnSelectedList').datalist({ url:'roleUnSelectedList.action?userName='+username});
+	$('#roleSelectedList').datalist({url:'roleSelectedList.action?userName='+username});
+	$('#dlgAddRole').dialog('open');
+}
+
 function editUser(){
 	var row = $('#dg').datagrid('getSelected');
 	if (row){
@@ -88,4 +97,39 @@ function deleteUser(){
 			}
 		});
 	}
+}
+
+
+function leftToRight(){
+	var unSelectedList=$("#roleUnSelectedList").datalist("getSelections");
+	var selectedList=$("#roleSelectedList").datalist("getRows");
+	for(var i=0;i<unSelectedList.length;i++){
+		var flag=true;
+		for(var j=0;j<selectedList.length;j++){
+			if(unSelectedList[i]==selectedList[j]) {
+				flag=false;
+				break;
+			}
+		}
+		if(flag==true){
+			$("#roleSelectedList").datalist("appendRow",unSelectedList[i]);
+			var rowIndex = $('#roleUnSelectedList').datalist('getRowIndex', unSelectedList[i]);
+			$("#roleUnSelectedList").datalist('deleteRow', rowIndex);  
+		}
+	}
+	$("#roleUnSelectedList").datalist("unselectAll");
+}
+
+function rightToLeft(){
+	var selectedList=$("#roleSelectedList").datalist("getSelections");
+	for(var i=0;i<selectedList.length;i++){
+		 $("#roleUnSelectedList").datalist('appendRow', selectedList[i]);  
+		 var rowIndex = $('#roleSelectedList').datalist('getRowIndex', selectedList[i]);
+		 $('#roleSelectedList').datalist('deleteRow', rowIndex);  
+	}
+	$("#roleSelectedList").datalist("unselectAll");
+	$('#roleUnSelectedList').datalist('sort', {
+		sortName: 'roleName',
+		sortOrder: 'asc'
+	});
 }

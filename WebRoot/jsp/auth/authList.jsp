@@ -35,7 +35,7 @@
 			<a class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editAuth()">编辑</a>
 			<a class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="deleteAuth()">删除</a>
 			<a class="easyui-linkbutton" iconCls="icon-reload" plain="true" onclick="refreshAuth()">刷新</a>
-			<a class="easyui-linkbutton" iconCls="icon-directory" plain="true" onclick="mngAuth()">分配</a>
+			<a class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="mngAuth()">分配</a>
 		</div>
 	<!-- 对话框 -->
 		<div id="dlg" class="easyui-dialog" style="width:400px;height:auto;font-size:14px;" closed="true" buttons="#dlg-buttons">

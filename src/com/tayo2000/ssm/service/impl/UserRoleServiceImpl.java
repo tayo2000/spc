@@ -30,4 +30,10 @@ public class UserRoleServiceImpl implements UserRoleService {
 		return mapper.delete(ur);
 	}
 
+	@Override
+	public int deleteByUserName(String username) throws Exception {
+		// TODO Auto-generated method stub
+		return mapper.deleteByUserName(username);
+	}
+
 }

@@ -47,6 +47,7 @@
 			<a class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUser()">编辑</a>
 			<a class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editPassword()">修改密码</a>
 			<a class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="deleteUser()">删除</a>
+			<a class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="addUserRole()">分配角色</a>
 			<a class="easyui-linkbutton" iconCls="icon-reload" plain="true" onclick="javascript: $('#dg').datagrid('reload');">刷新</a>
 		</div>
 	
@@ -140,5 +141,42 @@
 		<a class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlgEditPassword').dialog('close')">取消</a>
 	</div>
 	
+	<div id="dlgAddRole"  class="easyui-dialog"  
+		 data-options="iconCls:'icon-save', 
+				  closed:true,
+				  title:'分配角色',
+				  modal:true,
+				  buttons:'#dlgAddRole-buttons'" 
+		 style="width:450px;height:auto;padding:10px 20px ">
+		 <table style="padding:5px;">
+		 	<tr>
+		 		<td  style="padding:5px;">
+		 			<div id="roleUnSelectedList" class="easyui-datalist" title="可选角色列表" style="width:150px;height:320px;" data-options="
+			            singleSelect: false,
+			            textField:'roleName',
+			            valueField:'roleId'
+			            ">
+		   		   </div>
+		 		</td>
+		 		<td>
+		 			<input type="button" onclick="leftToRight()" value=">>"/>
+		 				<br/><br/>
+		 			<input type="button" onclick="rightToLeft()" value="<<"/>
+		 		</td>
+		 		<td style="padding:5px;">
+		 			<div id="roleSelectedList" class="easyui-datalist" title="已选角色列表" style="width:150px;height:320px;" data-options="
+			            singleSelect: false,
+			       		 textField:'roleName',
+			            valueField:'roleId'
+			            ">
+		   		  </div>
+		 		</td>
+		 	</tr>
+ 		</table>
+    </div>
+    <div id="dlgAddRole-buttons">
+		<a class="easyui-linkbutton" iconCls="icon-ok" onclick="assignAuth()">分配</a>
+		<a class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg2').dialog('close')">重置</a>
+	</div>
 </body>
 </html>

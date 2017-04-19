@@ -36,4 +36,16 @@ public class RoleServiceImpl implements RoleService {
 		return mapper.update(role);
 	}
 
+	@Override
+	public List<Role> listByUser(String username) throws Exception {
+		// TODO Auto-generated method stub
+		return mapper.listByUser(username);
+	}
+
+	@Override
+	public List<Role> RevListByUser(String username) throws Exception {
+		// TODO Auto-generated method stub
+		return mapper.RevListByUser(username);
+	}
+
 }

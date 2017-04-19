@@ -8,4 +8,5 @@ public interface UserRoleService {
 	public List<UserRole> list()  throws Exception;
 	public int add(UserRole ur) throws Exception;
 	public int delete(UserRole ur) throws Exception;
+	public int deleteByUserName(String username) throws Exception;
 }

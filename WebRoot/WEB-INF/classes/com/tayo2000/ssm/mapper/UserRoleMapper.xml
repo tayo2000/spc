@@ -10,12 +10,18 @@
   	</select>
   	
 	<delete id="delete" parameterType="UserRole">
-		delete from userrole where  userId=#{userId}  and roleId=#{roleId}
+		delete from userrole where  userName=#{userName}  and roleId=#{roleId}
+	</delete>
+	
+	<delete id="deleteByUserName" parameterType="String">
+		delete from userrole where userName=#{value}
 	</delete>
 	
 	<insert id="add" parameterType="UserRole">
-		insert into userrole(userId,roleId) 
-		values(#{userId},#{roleId})
+		insert into userrole(userName,roleId) 
+		values(#{userName},#{roleId})
 	</insert>
+	
+	
 	
   </mapper>
