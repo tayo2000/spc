@@ -7,25 +7,34 @@ import javax.servlet.http.HttpSession;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.tayo2000.ssm.po.User;
+
 public class LoginInterceptor implements HandlerInterceptor {
-
-
+	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-		String url=request.getRequestURI();
-		if(url.indexOf("userLogin.action")>0 || 
-		   url.indexOf("verifyCodeImage.action")>0 ||
-		   url.indexOf("login.action")>0)	return true;
+		String pathUrl=request.getRequestURI();
+		if(pathUrl.indexOf("userLogin.action")>0 || 
+		   pathUrl.indexOf("verifyCodeImage.action")>0 ||
+		   pathUrl.indexOf("login.action")>0)	return true;
 		//判断session
 		HttpSession session  = request.getSession();
 		//从session中取出用户身份信息
-		String username = (String) session.getAttribute("username");
-		if(username!= null)	return true;
-		//执行这里表示用户身份需要认证，跳转登陆页面
-		//request.getRequestDispatcher("/jsp/index.jsp").forward(request, response);
-		response.sendRedirect("jsp/login.jsp");
-		return false;
-
+		User user=(User) session.getAttribute("user");
+		if(user==null || "".equals(user.getUsername()) ){
+			//执行这里表示用户身份需要认证，跳转登陆页面
+			response.sendRedirect("jsp/login.jsp");
+			return false;
+		}
+		System.out.println("正在访问的是："+pathUrl);
+		boolean flag=false;
+		for(String authUrl: user.getUrlList()){
+			if(pathUrl.contains(authUrl)) {flag=true;break;}
+		}
+		if(flag) System.out.println("有权访问");
+		else System.out.println("无权访问");
+		System.out.println("----------------------");
+		return true;
 	}
 
 	@Override

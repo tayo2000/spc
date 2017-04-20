@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.tayo2000.ssm.po.User;
+
 public class LoginFilter implements Filter {
 	@Override
 	public void init(FilterConfig filterChain) throws ServletException {
@@ -36,8 +38,8 @@ public class LoginFilter implements Filter {
 			HttpSession session = request.getSession();
 	        // 获得用户请求的URI
 	        String contextPath = request.getContextPath();
-	        String username = (String) session.getAttribute("username");
-	        if (username == null || "".equals(username)) {
+	        User user=(User) session.getAttribute("user");
+	        if (user == null || "".equals(user.getUsername())) {
 	            response.sendRedirect(contextPath+"/jsp/login.jsp");
 	            return;
 	        }

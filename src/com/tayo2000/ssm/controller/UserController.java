@@ -1,6 +1,7 @@
 package com.tayo2000.ssm.controller;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -17,7 +18,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.tayo2000.ssm.po.Auth;
 import com.tayo2000.ssm.po.User;
+import com.tayo2000.ssm.service.AuthService;
 import com.tayo2000.ssm.service.UserService;
 import com.tayo2000.ssm.utils.Tool;
 
@@ -25,6 +28,9 @@ import com.tayo2000.ssm.utils.Tool;
 public class UserController {
 	@Autowired
 	private  UserService userService;
+	
+	@Autowired
+	private AuthService authService;
 
 	@RequestMapping("/userLogin")
 	public String userLogin(@Validated User user,BindingResult bindResult,HttpSession session,RedirectAttributes attrs) throws Exception{
@@ -53,9 +59,19 @@ public class UserController {
 			attrs.addFlashAttribute("passwordMsg","密码不正确");
 			return "redirect:login.action";
 		}
-		session.setAttribute("username", username);
-		session.setAttribute("role", user.getRoleId());
-		session.setAttribute("fNo", user.getfNo());
+		
+		/*保存用户权限*/
+		List<Auth> authList=authService.listByRoleId(user.getRoleId());
+		List<String> urlList=new ArrayList<String>();
+		for(Auth au : authList){
+			urlList.add(au.getUrl());
+		}
+		user.setUrlList(urlList);
+		
+/*		session.setAttribute("username", username);
+		session.setAttribute("roleId", user.getRoleId());
+		session.setAttribute("fNo", user.getfNo());*/
+		session.setAttribute("user", user);
 		if(user.getLoginState()!=1){
 			user.setLoginState(1);
 			user.setLoginCount(user.getLoginCount()+1);
@@ -66,10 +82,13 @@ public class UserController {
 		return  "redirect:/jsp/index.jsp";
 	}
 		
+	
 	@RequestMapping("/login")
-	public String login(Model model,@ModelAttribute("user") User user,@ModelAttribute("usernameMsg") String usernameMsg
-								,@ModelAttribute("passwordMsg") String passwordMsg
-								,@ModelAttribute("verifycodeMsg") String verifycodeMsg){
+	public String login(Model model,
+						@ModelAttribute("user") User user,
+						@ModelAttribute("usernameMsg") String usernameMsg,
+						@ModelAttribute("passwordMsg") String passwordMsg,
+						@ModelAttribute("verifycodeMsg") String verifycodeMsg){
 		model.addAttribute("usernameMsg", usernameMsg);
 		model.addAttribute("passwordMsg", passwordMsg);
 		model.addAttribute("verifycodeMsg", verifycodeMsg);

@@ -1,5 +1,7 @@
 package com.tayo2000.ssm.po;
 
+import java.util.List;
+
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -15,6 +17,7 @@ public class User {
 	private int loginState;
 	private int loginCount;
 	private String  loginTime;
+	private List<String> urlList; //可以访问的URL列表
 	
 	@NotEmpty(message="验证码必须填")
 	private String verifycode;  //用户验证码
@@ -74,6 +77,12 @@ public class User {
 	}
 	public void setRoleId(String roleId) {
 		this.roleId = roleId;
+	}
+	public List<String> getUrlList() {
+		return urlList;
+	}
+	public void setUrlList(List<String> urlList) {
+		this.urlList = urlList;
 	}
 	public String toString(){
 		StringBuffer sb=new StringBuffer("");
