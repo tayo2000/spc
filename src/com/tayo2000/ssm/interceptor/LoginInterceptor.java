@@ -26,14 +26,20 @@ public class LoginInterceptor implements HandlerInterceptor {
 			response.sendRedirect("jsp/login.jsp");
 			return false;
 		}
-		System.out.println("正在访问的是："+pathUrl);
+		System.out.print("正在访问的是："+pathUrl);
 		boolean flag=false;
 		for(String authUrl: user.getUrlList()){
 			if(pathUrl.contains(authUrl)) {flag=true;break;}
 		}
-		if(flag) System.out.println("有权访问");
-		else System.out.println("无权访问");
-		System.out.println("----------------------");
+		if(flag) {
+			System.out.print("有权访问");
+			response.sendRedirect("jsp/login.jsp");
+			return false;
+		}
+		else{
+			System.out.print("无权访问");
+		}
+		System.out.println();
 		return true;
 	}
 
