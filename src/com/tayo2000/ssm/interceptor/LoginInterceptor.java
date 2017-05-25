@@ -16,7 +16,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 		String pathUrl=request.getRequestURI();
 		if(pathUrl.indexOf("userLogin.action")>0 || 
 		   pathUrl.indexOf("verifyCodeImage.action")>0 ||
-		   pathUrl.indexOf("login.action")>0)	return true;
+		   pathUrl.indexOf("login.action")>0 ||  pathUrl.indexOf("userLogout.action")>0)	return true;
 		//判断session
 		HttpSession session  = request.getSession();
 		//从session中取出用户身份信息
@@ -26,21 +26,11 @@ public class LoginInterceptor implements HandlerInterceptor {
 			response.sendRedirect("jsp/login.jsp");
 			return false;
 		}
-		System.out.print("正在访问的是："+pathUrl);
 		boolean flag=false;
 		for(String authUrl: user.getUrlList()){
 			if(pathUrl.contains(authUrl)) {flag=true;break;}
 		}
-		if(flag) {
-			System.out.print("有权访问");
-			response.sendRedirect("jsp/login.jsp");
-			return false;
-		}
-		else{
-			System.out.print("无权访问");
-		}
-		System.out.println();
-		return true;
+		return flag;
 	}
 
 	@Override

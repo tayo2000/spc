@@ -31,7 +31,7 @@ public class LoginFilter implements Filter {
 			HttpServletRequest request = (HttpServletRequest) servletRequest;
 	        HttpServletResponse response = (HttpServletResponse) servletResponse;
 	        String url=request.getRequestURI();
-			if(url.indexOf("login.jsp")>0)	{
+			if(url.indexOf("login.jsp")>0 ||url.indexOf("error.jsp")>0)	{
 				filterChain.doFilter(servletRequest, servletResponse);
 				return;
 			}

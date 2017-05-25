@@ -40,8 +40,8 @@
 		<div id="north" region="north" split="true" border="false" >
 			<span id="myclock"></span>
 			<span>
-			欢迎${sessionScope.user.roleId}：${sessionScope.user.username} | 
-			<a href="userLogout.action?username=${sessionScope.user.username}">退出登陆</a></span>
+			欢迎  ${sessionScope.user.roleId}：${sessionScope.user.username} | 
+			<a href="userLogout.action?username=${sessionScope.user.username}">退出</a></span>
 		</div>
 		
 		<div  id="west" region="west" split="true" title="导航菜单" style="width:180px;" id="west">
