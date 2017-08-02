@@ -68,9 +68,6 @@ public class UserController {
 		}
 		user.setUrlList(urlList);
 		
-/*		session.setAttribute("username", username);
-		session.setAttribute("roleId", user.getRoleId());
-		session.setAttribute("fNo", user.getfNo());*/
 		session.setAttribute("user", user);
 		if(user.getLoginState()!=1){
 			user.setLoginState(1);

@@ -3,10 +3,12 @@ package com.tayo2000.ssm.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.tayo2000.ssm.mapper.ModuleMapper;
 import com.tayo2000.ssm.po.Module;
 import com.tayo2000.ssm.service.ModuleService;
-
+@Service("moduleService")
 public class ModuleServiceImpl implements ModuleService {
 	
 	@Autowired

@@ -44,7 +44,7 @@
     <!-- 注解驱动，用于取代上面的注解映射器和适配器-->	
     	<mvc:annotation-driven  validator="validator"/>  
   	<!-- 组件扫描 -->
-    	<context:component-scan base-package="com.tayo2000.ssm.controller"></context:component-scan>
+    	<context:component-scan base-package="com.tayo2000.ssm.controller"/>
     	 
     <!-- 视图解析器 -->	
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -60,6 +60,8 @@
 			<bean class="com.tayo2000.ssm.interceptor.LoginInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
+	<!-- 定义统一异常处理器 -->
+	<bean class="com.tayo2000.ssm.exception.CustomExceptionResolver"></bean>
 	
 	<!-- 静态资源的映射 -->
 	<mvc:resources location="/css/" mapping="/css/**" />

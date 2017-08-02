@@ -8,7 +8,6 @@
 	<title>产品质量管理信息系统</title>
 	</head>
 	<body>	
-		您没有权限访问该页面！
-	</div>
+	<h4>${requestScope.exceptionInfo}</h4>
 	</body>
 </html>

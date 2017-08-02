@@ -18,7 +18,7 @@
 <body class="easyui-layout" >	
 		<!-- 模块列表   有工具栏 -->
 		<table id="dg" title="模块列表" class="easyui-datagrid" style="width:100%;height:auto" 
-			url="moduleList.action" toolbar="#toolbar" rownumbers="true" fitColumns="true" singleSelect="true" >
+			url="moduleList.action"  toolbar="#toolbar" rownumbers="true" fitColumns="true" singleSelect="true" striped="true"  >
 			<thead>
 				<tr>
 					<th field="moduleId" width="50">模块编号</th>

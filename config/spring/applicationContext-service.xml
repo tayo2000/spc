@@ -16,14 +16,6 @@
             http://www.springframework.org/schema/aop/spring-aop-3.2.xsd  
             http://www.springframework.org/schema/tx   
             http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
-     <bean id="productService" class="com.tayo2000.ssm.service.impl.ProductServiceImpl"></bean>  
-     <bean id="featureService" class="com.tayo2000.ssm.service.impl.QualityFeatureServiceImpl"></bean>   
-     <bean id="realTimeValueService" class="com.tayo2000.ssm.service.impl.RealTimeValueServiceImpl"></bean>
-     <bean id="factoryService" class="com.tayo2000.ssm.service.impl.FactoryServiceImpl"></bean>
-     <bean id="userService"    class="com.tayo2000.ssm.service.impl.UserServiceImpl"></bean>  
-     <bean id="authService"   class="com.tayo2000.ssm.service.impl.AuthServiceImpl"></bean>  
-     <bean id="moduleService"  class="com.tayo2000.ssm.service.impl.ModuleServiceImpl"></bean>   
-     <bean id="roleService"  class="com.tayo2000.ssm.service.impl.RoleServiceImpl"></bean> 
-     <bean id="userRoleService" class="com.tayo2000.ssm.service.impl.UserRoleServiceImpl"></bean>     
-     <bean id="authRoleService" class="com.tayo2000.ssm.service.impl.AuthRoleServiceImpl"></bean>            
+          
+     	<context:component-scan base-package="com.tayo2000.ssm.service.impl"/>          
 </beans>

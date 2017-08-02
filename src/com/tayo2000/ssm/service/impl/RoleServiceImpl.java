@@ -3,11 +3,12 @@ package com.tayo2000.ssm.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.tayo2000.ssm.mapper.RoleMapper;
 import com.tayo2000.ssm.po.Role;
 import com.tayo2000.ssm.service.RoleService;
-
+@Service("roleService")
 public class RoleServiceImpl implements RoleService {
 	@Autowired
 	RoleMapper mapper;

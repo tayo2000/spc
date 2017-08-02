@@ -32,7 +32,7 @@
 		tabCloseEven();
 		clockon();
 		//addTab('厂商列表','jsp/factory/factoryList.jsp');
-		addTab('用户列表','jsp/user/userList.jsp');
+		addTab('欢迎使用','jsp/welcome.jsp');
 	})
 	</script>
 	</head>
@@ -46,7 +46,51 @@
 		
 		<div  id="west" region="west" split="true" title="导航菜单" style="width:180px;" id="west">
         	<div class="easyui-accordion" fit="true" border="false">
-				<div title="系统设置" iconCls="icon-ok" style="overflow:auto;padding:10px;">
+				<div title="质量定义" iconCls="icon-ok"  style="padding:10px;">
+					<ul>
+						<li>
+							<div><a onclick="addTab('厂商定义','jsp/factory/factoryList.jsp')">厂商定义</a></div>
+						</li>
+						<li>
+							<div><a onclick="addTab('产品定义','jsp/product/productList.jsp')">产品定义</a></div>
+						</li>
+						<li>
+							<div><a onclick="addTab('特性定义','jsp/feature/featureList.jsp')">特性定义</a></div>
+						</li>
+						<li>
+							<div><a onclick="addTab('过程定义','jsp/factory/factoryList.jsp')">过程定义</a></div>
+						</li>
+						<li>
+							<div><a onclick="addTab('设备定义','jsp/factory/factoryList.jsp')">设备定义</a></div>
+						</li>
+						<li>
+							<div><a onclick="addTab('自动检测定义','jsp/factory/factoryList.jsp')">自动检测定义</a></div>
+						</li>
+					</ul>
+				</div>	
+				<div title="质量控制" iconCls="icon-ok"  style="padding:10px;">
+				</div>	
+				<div title="实时质量" iconCls="icon-ok"  style="padding:10px;">
+					<ul>
+						<li>
+							<div><a onclick="addTab('实时质量','jsp/qualityInfo/realQuality.jsp')">实时质量</a></div>
+						</li>
+					</ul>
+				</div>	
+				<div title="质量分析" iconCls="icon-ok"  style="padding:10px;">
+				<ul>
+					<li>
+						<div><a onclick="addTab('历史数据','jsp/rtv/rtvList.jsp')">历史数据</a></div>
+					</li>
+				</ul>
+				</div>	
+				<div title="质量改进" iconCls="icon-ok"  style="padding:10px;">
+				</div>	
+				<div title="质量投诉" iconCls="icon-ok"  style="padding:10px;">
+				</div>
+				<div title="质量业绩" iconCls="icon-ok"  style="padding:10px;">
+				</div>
+				<div title="系统设置" iconCls="icon-ok"  style="padding:10px;">
 					<ul>
 						<li>
 							<div><a onclick="addTab('用户列表','jsp/user/userList.jsp')">用户管理</a></div>
@@ -62,29 +106,12 @@
 						</li>
 					</ul>
 				</div>
-				
-				<div title="质量管理" iconCls="icon-ok" style="overflow:auto;padding:10px;">
-					<ul>
-						<li>
-							<div><a onclick="addTab('厂商列表','jsp/factory/factoryList.jsp')">质量定义</a></div>
-						</li>
-						<li>
-							<div><a onclick="addTab('实时质量','jsp/qualityInfo/realQuality.jsp')">实时质量</a></div>
-						</li>
-						<li>
-							<div><a onclick="addTab('历史数据','jsp/rtv/rtvList.jsp')">历史数据</a></div>
-						</li>
-					</ul>
-				</div>
-				<div title="质量改进" iconCls="icon-ok"  style="padding:10px;">
-				</div>	
-				<div title="质量策划" iconCls="icon-ok"  style="padding:10px;">
-				</div>			
 			</div>
     	</div>
     	
     	<div id="mainPanle" region="center" style="background: #eee; overflow-y:hidden">
 	       	 <div id="tabs" class="easyui-tabs"  fit="true" border="false" >
+	       	 	
 	       	 </div>
        	</div>
        	

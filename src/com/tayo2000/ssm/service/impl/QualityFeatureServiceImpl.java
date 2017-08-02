@@ -3,13 +3,14 @@ package com.tayo2000.ssm.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.tayo2000.ssm.mapper.QualityFeatureMapper;
 import com.tayo2000.ssm.po.Product;
 import com.tayo2000.ssm.po.ProductQuery;
 import com.tayo2000.ssm.po.QualityFeature;
 import com.tayo2000.ssm.service.QualityFeatureService;
-
+@Service("featureService")
 public class QualityFeatureServiceImpl implements QualityFeatureService {
 	
 	@Autowired

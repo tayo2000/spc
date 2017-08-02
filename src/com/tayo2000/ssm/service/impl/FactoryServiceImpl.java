@@ -3,11 +3,12 @@ package com.tayo2000.ssm.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.tayo2000.ssm.mapper.FactoryMapper;
 import com.tayo2000.ssm.po.Factory;
 import com.tayo2000.ssm.service.FactoryService;
-
+@Service("factoryService")
 public class FactoryServiceImpl implements FactoryService {
 
 	@Autowired

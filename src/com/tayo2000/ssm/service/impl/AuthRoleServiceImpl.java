@@ -3,11 +3,13 @@ package com.tayo2000.ssm.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.tayo2000.ssm.mapper.AuthRoleMapper;
 import com.tayo2000.ssm.po.AuthRole;
 import com.tayo2000.ssm.service.AuthRoleService;
 
+@Service("authRoleService")
 public class AuthRoleServiceImpl implements AuthRoleService {
 	@Autowired
 	private AuthRoleMapper mapper;

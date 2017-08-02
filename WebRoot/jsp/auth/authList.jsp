@@ -15,10 +15,11 @@
 	<script type="text/javascript" src="js/common.js"></script>
 	<script type="text/javascript" src="js/auth.js"></script>
 </head>
-<body class="easyui-layout" id="authTab" >	
+<body class="easyui-layout"   style="overflow-y: scroll" >	
 		<!-- 权限列表   有工具栏 -->
-		<table id="dg" title="权限列表" class="easyui-datagrid" striped='true' style="width:100%;height:auto" 
-			url="authList.action" toolbar="#toolbar" rownumbers="true" fitColumns="true" singleSelect="true" >
+		<table id="dg" title="权限列表" class="easyui-datagrid" style="width:100%;height:auto" 
+			url="authList.action"  toolbar="#toolbar" pagination="true" 
+		   		rownumbers="true" fitColumns="true" singleSelect="true" striped="true" pageSize="20" >
 			<thead>
 				<tr>
 					<th field="authId" width="50">权限代号</th>
@@ -68,7 +69,6 @@
 		<a class="easyui-linkbutton" iconCls="icon-ok" onclick="saveAuth()">保存</a>
 		<a class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')">取消</a>
 	</div>
-	
-	<div id="dd"></div>
+
 </body>
 </html>

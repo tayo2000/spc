@@ -3,12 +3,14 @@ package com.tayo2000.ssm.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.tayo2000.ssm.mapper.UserMapper;
 import com.tayo2000.ssm.po.User;
 import com.tayo2000.ssm.service.UserService;
 import com.tayo2000.ssm.utils.Tool;
 
+@Service("userService")
 public class UserServiceImpl implements UserService {
 
 	@Autowired

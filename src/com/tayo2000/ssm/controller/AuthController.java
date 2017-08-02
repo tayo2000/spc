@@ -3,6 +3,7 @@ package com.tayo2000.ssm.controller;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.tayo2000.ssm.po.Auth;
 import com.tayo2000.ssm.po.AuthRole;
 import com.tayo2000.ssm.po.Module;
+import com.tayo2000.ssm.po.Pager;
 import com.tayo2000.ssm.service.AuthRoleService;
 import com.tayo2000.ssm.service.AuthService;
 import com.tayo2000.ssm.service.ModuleService;
@@ -40,9 +42,21 @@ public class AuthController {
 	
 	@RequestMapping("/authList")
 	@ResponseBody
-	public List<Auth> authList() throws Exception{
-		List<Auth> list=authService.list();
-		return list;
+	public Map<String, Object> authList(HttpServletRequest request) throws Exception{
+		Pager<Auth> pager=new Pager<Auth>();
+		int totalCount=authService.getTotalRecord();
+		int pageIndex=Integer.parseInt(request.getParameter("page")==null?"1":request.getParameter("page"));
+		int pageSize=Integer.parseInt(request.getParameter("rows")==null?"10":request.getParameter("rows"));
+		pager.setStartPos((pageIndex-1)*pageSize);
+		pager.setPageSize(pageSize);
+		pager.setTotalCount(totalCount);
+		List<Auth> list=authService.listByPagination(pager);
+		Map<String, Object> jsonMap = new HashMap<String, Object>();
+		jsonMap.put("total", totalCount);
+		jsonMap.put("rows", list);
+		return jsonMap;
+//		List<Auth> list=authService.list();
+//		return list;
 	}
 	
 	

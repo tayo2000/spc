@@ -1,3 +1,3 @@
-function reloadRTV(){
-		$('#dg').datagrid('reload');
+function reloadRTV() {
+	$('#dg').datagrid('reload');
 }
